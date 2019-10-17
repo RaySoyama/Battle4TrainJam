@@ -43,17 +43,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private Transform roulleteParent;
 
-
-    [SerializeField]
-    private Transform roulleteLeft;
-
-    [SerializeField]
-    private Transform roulleteFront;
-
-    [SerializeField]
-    private Transform roulleteRight;
-
-
     [SerializeField][ReadOnlyField]
     private int rouletteIdx = -1;
 
@@ -80,11 +69,11 @@ public class PlayerManager : MonoBehaviour
             roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
             rouletteIdx = -1;
         }
-        if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
+        else if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
         {
             //This shit dont work since it needs to turn off in action, and  reset
-            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-            ItemRouletteUpdate();
+            //roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+            //ItemRouletteUpdate();
         }
         else
         {
@@ -197,7 +186,14 @@ public class PlayerManager : MonoBehaviour
         {
             if (item.ItemData.ID == rouletteList[rouletteIdx].ID)
             {
-                item.transform.position = roulleteFront.position;
+                item.transform.localScale = Vector3.Lerp(item.transform.localScale, Vector3.one, Time.deltaTime * backpackToggleSpeed);
+
+                roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,Vector3.up * (90 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                //not a high prio fix for the loop back bug
+            }
+            else
+            {
+                item.transform.localScale = Vector3.Lerp(item.transform.localScale, Vector3.one * 0.1f, Time.deltaTime * backpackToggleSpeed);
             }
         }
 
