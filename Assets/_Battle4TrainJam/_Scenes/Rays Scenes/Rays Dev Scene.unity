@@ -2558,6 +2558,14 @@ MonoBehaviour:
   UkuleleAudioSource: {fileID: 767096745}
   SynthAudioSource: {fileID: 1069833681}
   ActionAudioSource: {fileID: 1529547489}
+  WalkingUke: {fileID: 8300000, guid: c8b36c0b99eaffc4291430d8317154ce, type: 3}
+  WalkingSynth: {fileID: 8300000, guid: 786e4f76f530e5943b6f64c3982e565b, type: 3}
+  WalkingBass: {fileID: 8300000, guid: 9dc009c4cc11fe843acab7cbc90a27dc, type: 3}
+  EnemyAttackingSynth: {fileID: 8300000, guid: c090ab6c104ceaa45be9ef521d1d0e1a, type: 3}
+  EnemyAttackingBass: {fileID: 8300000, guid: 30161b5f70b0f914a9638e1d023c0f7f, type: 3}
+  CombatNoActionSynth: {fileID: 8300000, guid: ebb37c67b1f2ee84aa82390456016da8, type: 3}
+  CombatNoActionUke: {fileID: 8300000, guid: b79a7e56d1be9c740804bee8b22aa23f, type: 3}
+  CombatNoActionBass: {fileID: 8300000, guid: 16f2453536c4f3243b2bcfb39766beeb, type: 3}
   AllItems:
   - {fileID: 11400000, guid: 5a9adbd1e52796d4091ad74016282401, type: 2}
   - {fileID: 11400000, guid: 58c97e914a8e49a448ffb8c78f753db0, type: 2}
@@ -2589,7 +2597,7 @@ PrefabInstance:
     - target: {fileID: 1071193270882039654, guid: f757aa80dcb089f498b39cf1aebe0de8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.02
+      value: 16.58
       objectReference: {fileID: 0}
     - target: {fileID: 1071193270882039654, guid: f757aa80dcb089f498b39cf1aebe0de8,
         type: 3}
