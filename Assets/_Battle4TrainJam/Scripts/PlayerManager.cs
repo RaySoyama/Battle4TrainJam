@@ -109,6 +109,8 @@ public class PlayerManager : MonoBehaviour
         backpackInCombat.SetActive(false);
 
         //play animation of walking
+        anim.SetBool("isWalking", true);
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -121,6 +123,8 @@ public class PlayerManager : MonoBehaviour
                 WorldMachine.World.enemyInCombat = EC;
                 WorldMachine.World.currentState = WorldMachine.State.EnterCombat;
                 //turn off animation for walking
+                anim.SetBool("isWalking", false);
+
                 return;
             }
         }
