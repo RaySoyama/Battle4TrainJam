@@ -174,7 +174,7 @@ public class PlayerManager : MonoBehaviour
             rouletteIdx--;
             if (rouletteIdx == -1)
             {
-                rouletteIdx = rouletteList.Count;
+                rouletteIdx = rouletteList.Count - 1;
             }
         }
 
