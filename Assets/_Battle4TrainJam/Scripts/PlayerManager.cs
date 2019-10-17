@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public static PlayerManager Player;
 
     [SerializeField]
     private Animator anim;
@@ -64,6 +65,12 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+
+        if (Player == null)
+        {
+            Player = this;
+        }
+
         DevPopulateBag();
 
         InitializeItemRoulette();
@@ -72,44 +79,35 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if (WorldMachine.World.currentState == WorldMachine.State.Walking)
+        switch (WorldMachine.World.currentState)
         {
-            OnWalkingStay();
+            case WorldMachine.State.None:
+                
 
-            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
-            rouletteIdx = -1;
+                break;
+            case WorldMachine.State.Walking:
+                OnWalkingStay();
+
+                break;
+            case WorldMachine.State.EnterCombat:
+                OnEnterCombatStay();
+
+                break;
+            case WorldMachine.State.PreAction:
+                OnPreActionStay();
+
+                break;
+            case WorldMachine.State.Action:
+
+                break;
+            case WorldMachine.State.Win:
+
+                break;
+            case WorldMachine.State.Death:
+
+                break;
         }
-        else if (WorldMachine.World.currentState == WorldMachine.State.EnterCombat)
-        {
-            anim.SetBool("isWalking", false);
-            outAnim.SetBool("isWalking", false);
 
-            //This shit dont work since it needs to turn off in action, and  reset
-            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-            ItemRouletteUpdate();
-        }
-        else if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
-        {
-            anim.SetTrigger("pickItem");
-            outAnim.SetTrigger("pickItem");
-            
-            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-            ItemRouletteUpdate();
-
-            //roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
-            //rouletteIdx = -1;
-
-            backpackNonCombat.SetActive(false);
-            backpackInCombat.SetActive(true);
-        }
-        else if (WorldMachine.World.currentState == WorldMachine.State.Action)
-        {
-            anim.SetTrigger("block");
-            outAnim.SetTrigger("block");
-
-            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
-            rouletteIdx = -1;
-        }
 
         if (Input.GetKey(KeyCode.T))
         {
@@ -124,7 +122,7 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    private void OnWalkingEnter()
+    public void OnWalkingEnter()
     {
         anim.SetBool("isWalking", true);
         outAnim.SetBool("isWalking", true);
@@ -134,10 +132,17 @@ public class PlayerManager : MonoBehaviour
         backpackInCombat.SetActive(false);
 
         CheckRangeOfEnemies();
+
+
     }
 
     private void OnWalkingStay()
     {
+        //Remove Item Menu
+        roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
+        rouletteIdx = -1;
+
+
         CheckRangeOfEnemies();
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -153,7 +158,7 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    private void OnEnterCombatEnter()
+    public void OnEnterCombatEnter()
     {
 
 
@@ -162,16 +167,72 @@ public class PlayerManager : MonoBehaviour
 
     private void OnEnterCombatStay()
     {
-
-
+        //Open Menu
+        roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+        ItemRouletteUpdate();
     }
 
-    private void OnEnterCombatExit()
+    public void OnEnterCombatExit()
     {
 
 
     }
 
+
+
+
+
+    public void OnPreActionEnter()
+    {
+        anim.SetTrigger("pickItem");
+        outAnim.SetTrigger("pickItem");
+    }
+
+    private void OnPreActionStay()
+    {
+        //Keep Inventory Open
+        roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+        ItemRouletteUpdate();
+
+        backpackNonCombat.SetActive(false);
+        backpackInCombat.SetActive(true);
+    }
+
+
+    public void OnPreActionExit()
+    {
+        
+
+    }
+
+
+
+
+
+
+    public void OnActionEnter()
+    {
+        //if(blocking of hitting or neither)
+
+        anim.SetTrigger("block");
+        outAnim.SetTrigger("block");
+
+    }
+
+    private void OnActionStay()
+    {
+        roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
+
+        //logic
+    }
+
+
+    public void OnActionExit()
+    {
+        //Determine shit
+
+    }
+    
 
     private void CheckRangeOfEnemies()
     {
@@ -183,12 +244,14 @@ public class PlayerManager : MonoBehaviour
                 WorldMachine.World.currentState = WorldMachine.State.EnterCombat;
 
                 OnWalkingExit();
-                //onEntercombat
+                OnEnterCombatEnter();
                 return;
             }
         }
     
     }
+
+
 
     public bool AddItemToBag(ItemSO newItem)
     {
@@ -204,7 +267,7 @@ public class PlayerManager : MonoBehaviour
         //Add to Visual Inventory
         return true;
     }
-
+    
     public void RemoveItemFromBag(ItemSO newItem)
     {
         inventory.Remove(newItem);
@@ -283,6 +346,9 @@ public class PlayerManager : MonoBehaviour
         rouletteIdx = 0;
     }
 
+
+
+
     private void DevPopulateBag()
     {
         foreach(ItemSO item in WorldMachine.World.AllItems)
@@ -292,5 +358,5 @@ public class PlayerManager : MonoBehaviour
                 //ree
             }
         }
-    }   
+    }
 }

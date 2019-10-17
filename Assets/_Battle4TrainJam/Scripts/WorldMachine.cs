@@ -73,6 +73,7 @@ public class WorldMachine : MonoBehaviour
     //player ref
     //enemy ref
 
+    private Coroutine TimerCourtine = null;
 
     private bool cycleCheck = false;
     private float beatDuration;
@@ -93,7 +94,7 @@ public class WorldMachine : MonoBehaviour
 
         HeartBeatUpdate();
 
-
+        //Camera
         if (currentState == State.Walking)
         {
             walkingCam.Priority = 11;
@@ -112,6 +113,7 @@ public class WorldMachine : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             currentState = State.Walking;
+            PlayerManager.Player.OnWalkingEnter();
         }
 
 
@@ -123,42 +125,65 @@ public class WorldMachine : MonoBehaviour
             case State.Walking:
                 break;
             case State.EnterCombat:
-
-                if (cycleCheck == false)
+                
+                //Handle Time Offset here
+                if(currentBeatIndex != 1)
                 {
-                    if (currentBeatIndex == 2)
-                    {
-                        cycleCheck = true;
-                    }
-                    break;
+                    return;
                 }
 
-                if (currentBeatIndex == 1)
+                //wait 4 seconds
+                if (TimerCourtine == null)
                 {
-                    cycleCheck = false;
-                    currentState = State.PreAction;
-                }
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
+                }               
 
                 break;
+
             case State.PreAction:
 
-                if (cycleCheck == false)
+                //Handle Time Offset here (shouldnt be offset)
+                if (currentBeatIndex != 1)
                 {
-                    if (currentBeatIndex == 2)
-                    {
-                        cycleCheck = true;
-                    }
-                    break;
+                    return;
                 }
 
-                if (currentBeatIndex == 1)
+                //wait 4 seconds
+                if (TimerCourtine == null)
                 {
-                    cycleCheck = false;
-                    currentState = State.Action;
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.Action));
+
+                    //On Enter and Exit
+                    PlayerManager.Player.OnEnterCombatExit();
+                    PlayerManager.Player.OnPreActionEnter();
+                    
+
                 }
 
                 break;
+
             case State.Action:
+
+                //Handle Time Offset here (shouldnt be offset)
+                if (currentBeatIndex != 1)
+                {
+                    return;
+                }
+
+                //wait 4 seconds
+                if (TimerCourtine == null)
+                {
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f));
+
+                    //On Enter and Exit
+                    PlayerManager.Player.OnPreActionExit();
+                    PlayerManager.Player.OnActionEnter();
+
+                    
+                    //Player or Boss wil
+                }
+
+
                 break;
             case State.Win:
                 break;
@@ -205,6 +230,7 @@ public class WorldMachine : MonoBehaviour
                 break;
 
             case State.EnterCombat:
+
                 if (currentBeatIndex == 1 && (BassAudioSource.isPlaying == false))
                 {
                     UkuleleAudioSource.Play();
@@ -235,6 +261,23 @@ public class WorldMachine : MonoBehaviour
         }
 
     }
+
+    private IEnumerator TimerCour(float time, State nextState)
+    {
+        yield return new WaitForSeconds(time);
+
+        currentState = nextState;
+        TimerCourtine = null;
+
+    }
+
+      private IEnumerator TimerCour(float time)
+    {
+        yield return new WaitForSeconds(time);
+        TimerCourtine = null;
+
+    }
+
 
 
 }
