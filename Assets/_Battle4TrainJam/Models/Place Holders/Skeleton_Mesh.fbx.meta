@@ -42,6 +42,48 @@ ModelImporter:
     100072: transform9
     100074: Upper_Arm_R
     100076: Upper_Leg_R
+    100078: J_Ankle_L
+    100080: J_Ankle_L_END
+    100082: J_Ankle_R
+    100084: J_Ankle_R_END
+    100086: J_ChestBone_01
+    100088: J_ChestBone_02
+    100090: J_ChestBone_03
+    100092: J_ChestBone_END
+    100094: J_Elbow_L
+    100096: J_Elbow_R
+    100098: J_Head
+    100100: J_Head_END
+    100102: J_Hip_L
+    100104: J_Hip_R
+    100106: J_Knee_L
+    100108: J_Knee_R
+    100110: J_Lib_01_L
+    100112: J_Lib_01_L_END
+    100114: J_Lib_02_L
+    100116: J_Lib_02_L_END
+    100118: J_Lib_03_L
+    100120: J_Lib_03_L_END
+    100122: J_Rib_01_R
+    100124: J_Rib_01_R_END
+    100126: J_Rib_02_R
+    100128: J_Rib_02_R_END
+    100130: J_Rib_03_R
+    100132: J_Rib_03_R_END
+    100134: J_Ribcage
+    100136: J_Root
+    100138: J_Shoulder_L
+    100140: J_Shoulder_R
+    100142: J_Spine_01
+    100144: J_Spine_02
+    100146: J_Spine_03
+    100148: J_Spine_04
+    100150: J_Wrist_L
+    100152: J_Wrist_L_END
+    100154: J_Wrist_R
+    100156: J_Wrist_R_END
+    100158: Joints
+    100160: Skeleton_Mesh
     400000: Chest_Bone_Front_01
     400002: Chest_Bone_Front_01 1
     400004: Chest_Bone_Front_02
@@ -81,10 +123,55 @@ ModelImporter:
     400072: transform9
     400074: Upper_Arm_R
     400076: Upper_Leg_R
+    400078: J_Ankle_L
+    400080: J_Ankle_L_END
+    400082: J_Ankle_R
+    400084: J_Ankle_R_END
+    400086: J_ChestBone_01
+    400088: J_ChestBone_02
+    400090: J_ChestBone_03
+    400092: J_ChestBone_END
+    400094: J_Elbow_L
+    400096: J_Elbow_R
+    400098: J_Head
+    400100: J_Head_END
+    400102: J_Hip_L
+    400104: J_Hip_R
+    400106: J_Knee_L
+    400108: J_Knee_R
+    400110: J_Lib_01_L
+    400112: J_Lib_01_L_END
+    400114: J_Lib_02_L
+    400116: J_Lib_02_L_END
+    400118: J_Lib_03_L
+    400120: J_Lib_03_L_END
+    400122: J_Rib_01_R
+    400124: J_Rib_01_R_END
+    400126: J_Rib_02_R
+    400128: J_Rib_02_R_END
+    400130: J_Rib_03_R
+    400132: J_Rib_03_R_END
+    400134: J_Ribcage
+    400136: J_Root
+    400138: J_Shoulder_L
+    400140: J_Shoulder_R
+    400142: J_Spine_01
+    400144: J_Spine_02
+    400146: J_Spine_03
+    400148: J_Spine_04
+    400150: J_Wrist_L
+    400152: J_Wrist_L_END
+    400154: J_Wrist_R
+    400156: J_Wrist_R_END
+    400158: Joints
+    400160: Skeleton_Mesh
     2100000: lambert1
     2300000: Chest_Bone_Front_01
+    2300002: Skeleton_Mesh
     3300000: Chest_Bone_Front_01
+    3300002: Skeleton_Mesh
     4300000: Chest_Bone_Front_01
+    4300002: Skeleton_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1

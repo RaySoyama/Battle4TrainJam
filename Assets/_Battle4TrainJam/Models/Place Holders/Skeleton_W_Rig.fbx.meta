@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: f07c26f3605b10c4582f10835d9e9dc2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: J_Ankle_L
+    100002: J_Ankle_L_END
+    100004: J_Ankle_R
+    100006: J_Ankle_R_END
+    100008: J_ChestBone_01
+    100010: J_ChestBone_02
+    100012: J_ChestBone_03
+    100014: J_ChestBone_END
+    100016: J_Elbow_L
+    100018: J_Elbow_R
+    100020: J_Head
+    100022: J_Head_END
+    100024: J_Hip_L
+    100026: J_Hip_R
+    100028: J_Knee_L
+    100030: J_Knee_R
+    100032: J_Lib_01_L
+    100034: J_Lib_01_L_END
+    100036: J_Lib_02_L
+    100038: J_Lib_02_L_END
+    100040: J_Lib_03_L
+    100042: J_Lib_03_L_END
+    100044: J_Rib_01_R
+    100046: J_Rib_01_R_END
+    100048: J_Rib_02_R
+    100050: J_Rib_02_R_END
+    100052: J_Rib_03_R
+    100054: J_Rib_03_R_END
+    100056: J_Ribcage
+    100058: J_Root
+    100060: J_Shoulder_L
+    100062: J_Shoulder_R
+    100064: J_Spine_01
+    100066: J_Spine_02
+    100068: J_Spine_03
+    100070: J_Spine_04
+    100072: J_Wrist_L
+    100074: J_Wrist_L_END
+    100076: J_Wrist_R
+    100078: J_Wrist_R_END
+    100080: Joints
+    100082: Skeleton_Mesh
+    100084: //RootNode
+    400000: J_Ankle_L
+    400002: J_Ankle_L_END
+    400004: J_Ankle_R
+    400006: J_Ankle_R_END
+    400008: J_ChestBone_01
+    400010: J_ChestBone_02
+    400012: J_ChestBone_03
+    400014: J_ChestBone_END
+    400016: J_Elbow_L
+    400018: J_Elbow_R
+    400020: J_Head
+    400022: J_Head_END
+    400024: J_Hip_L
+    400026: J_Hip_R
+    400028: J_Knee_L
+    400030: J_Knee_R
+    400032: J_Lib_01_L
+    400034: J_Lib_01_L_END
+    400036: J_Lib_02_L
+    400038: J_Lib_02_L_END
+    400040: J_Lib_03_L
+    400042: J_Lib_03_L_END
+    400044: J_Rib_01_R
+    400046: J_Rib_01_R_END
+    400048: J_Rib_02_R
+    400050: J_Rib_02_R_END
+    400052: J_Rib_03_R
+    400054: J_Rib_03_R_END
+    400056: J_Ribcage
+    400058: J_Root
+    400060: J_Shoulder_L
+    400062: J_Shoulder_R
+    400064: J_Spine_01
+    400066: J_Spine_02
+    400068: J_Spine_03
+    400070: J_Spine_04
+    400072: J_Wrist_L
+    400074: J_Wrist_L_END
+    400076: J_Wrist_R
+    400078: J_Wrist_R_END
+    400080: Joints
+    400082: Skeleton_Mesh
+    400084: //RootNode
+    2100000: lambert1
+    4300000: Skeleton_Mesh
+    9500000: //RootNode
+    13700000: Skeleton_Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
