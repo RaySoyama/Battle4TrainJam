@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a209a662181c343974d365cce2dcdb, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  health: 1
+  health: 5
   attack: 1
   rarity: 1
   onDeathDrops:

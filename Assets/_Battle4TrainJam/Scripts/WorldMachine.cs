@@ -18,6 +18,9 @@ public class WorldMachine : MonoBehaviour
     public int currentBeatIndex;
 
 
+    //player ref
+    //enemy ref
+
 
 
     private float beatDuration;
@@ -37,7 +40,12 @@ public class WorldMachine : MonoBehaviour
     {
 
         HeartBeatUpdate();
-        
+
+
+        //if in combat check
+        CombatUpdate();
+
+
     }
 
     private void HeartBeatUpdate()
@@ -56,6 +64,13 @@ public class WorldMachine : MonoBehaviour
                 currentBeatIndex = 1;
             }
         }
+    }
+
+    private void CombatUpdate()
+    {
+
+
+
     }
 
 }
