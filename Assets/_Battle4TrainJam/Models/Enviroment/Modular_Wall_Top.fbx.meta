@@ -9,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: pPlane5
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks_Trim
+    second: {fileID: 2100000, guid: d8289ee7e9d893d48add61e4376f959c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
