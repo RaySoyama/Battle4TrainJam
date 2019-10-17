@@ -35,10 +35,20 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private float backpackToggleSpeed = 0.4f;
 
+    
+
+    [SerializeField][ReadOnlyField]
+    private int rouletteIdx = -1;
+
+    [SerializeField][ReadOnlyField]
+    private List<ItemSO> rouletteList;
 
     void Start()
     {
-        
+        DevPopulateBag();
+
+        InitializeItemRoulette();
+
     }
 
     void Update()
@@ -64,7 +74,6 @@ public class PlayerManager : MonoBehaviour
             backpackInCombat.transform.localScale = Vector3.Lerp(backpackInCombat.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
             //backpackNonCombat.transform.localScale = Vector3.Lerp(backpackNonCombat.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
         }
-
     }
 
 
@@ -98,6 +107,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(inventorySize + newItem.Size > 25)
         {
+            Debug.Log("Space Overflow");
             return false;
         }
 
@@ -114,5 +124,46 @@ public class PlayerManager : MonoBehaviour
         inventorySize -= newItem.Size;    
     }
 
-    
+    private void ItemRouletteUpdate()
+    {
+        if (inventory.Count == 0)
+        {
+            //big sad
+            return;
+        }
+
+        if (rouletteIdx == -1)
+        { 
+            
+        }
+
+
+
+    }
+
+    private void InitializeItemRoulette()
+    {
+        //get items accesable
+        rouletteList.Clear();
+        foreach (ItemSO item in WorldMachine.World.AllItems)
+        {
+            if (inventory.Contains(item) == true && rouletteList.Contains(item) == false)
+            {
+                rouletteList.Add(item);
+            }
+        }
+
+    }
+
+    private void DevPopulateBag()
+    {
+        foreach(ItemSO item in WorldMachine.World.AllItems)
+        {
+            if (AddItemToBag(item) == false)
+            {
+            }
+        }
+    }
+
+
 }

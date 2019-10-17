@@ -7,6 +7,18 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     [SerializeField]
+    private GameObject model;
+
+    public GameObject Model
+    {
+        get
+        {
+            return model;
+        }
+    }
+
+
+    [SerializeField]
     private bool isShield = false;
 
     public bool IsShield

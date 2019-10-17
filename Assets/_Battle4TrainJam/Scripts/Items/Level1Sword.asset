@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73e7a02aee1b1f4bbe603b894c1a695, type: 3}
   m_Name: Level1Sword
   m_EditorClassIdentifier: 
+  model: {fileID: 100000, guid: 821cc4de6d1b25949859e46e5fbaf512, type: 3}
   isShield: 0
   stat: 1
   size: 1

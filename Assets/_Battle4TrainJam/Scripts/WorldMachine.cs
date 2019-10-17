@@ -35,6 +35,10 @@ public class WorldMachine : MonoBehaviour
     [SerializeField]
     private AudioSource ActionAudioSource = null;
 
+    [SerializeField]
+    public List<ItemSO> AllItems = new List<ItemSO>();
+    //Small to Large, Shield to Sword
+
     [Space(10)]
     
 
@@ -211,10 +215,12 @@ public class WorldMachine : MonoBehaviour
                 break;
             case State.PreAction:
 
-                if (currentBeatIndex == 1 && (SynthAudioSource.isPlaying != true))
-                {
-                    SynthAudioSource.Play();
-                }
+
+                //Depends on whats happening, enemy chill? dead? attacking?
+                //if (currentBeatIndex == 1 && (SynthAudioSource.isPlaying != true))
+                //{
+                //    SynthAudioSource.Play();
+                //}
 
                 break;
             case State.Action:
