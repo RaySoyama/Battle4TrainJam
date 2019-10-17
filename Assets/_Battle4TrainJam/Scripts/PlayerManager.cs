@@ -98,6 +98,7 @@ public class PlayerManager : MonoBehaviour
 
                 break;
             case WorldMachine.State.Action:
+                OnActionStay();
 
                 break;
             case WorldMachine.State.Win:
@@ -169,12 +170,11 @@ public class PlayerManager : MonoBehaviour
     {
         //Open Menu
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-        ItemRouletteUpdate();
     }
 
     public void OnEnterCombatExit()
     {
-
+        ItemRouletteUpdate();
 
     }
 
@@ -186,6 +186,7 @@ public class PlayerManager : MonoBehaviour
     {
         anim.SetTrigger("pickItem");
         outAnim.SetTrigger("pickItem");
+
     }
 
     private void OnPreActionStay()
@@ -197,12 +198,13 @@ public class PlayerManager : MonoBehaviour
         backpackNonCombat.SetActive(false);
         backpackInCombat.SetActive(true);
     }
-
-
+    
     public void OnPreActionExit()
     {
-        
 
+
+        anim.SetTrigger("block");
+        outAnim.SetTrigger("block");
     }
 
 
@@ -213,9 +215,6 @@ public class PlayerManager : MonoBehaviour
     public void OnActionEnter()
     {
         //if(blocking of hitting or neither)
-
-        anim.SetTrigger("block");
-        outAnim.SetTrigger("block");
 
     }
 
@@ -250,8 +249,6 @@ public class PlayerManager : MonoBehaviour
         }
     
     }
-
-
 
     public bool AddItemToBag(ItemSO newItem)
     {
@@ -307,6 +304,9 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
 
+
+
+            RemoveItemFromBag(rouletteList[rouletteIdx]);
         }
 
 
@@ -345,10 +345,7 @@ public class PlayerManager : MonoBehaviour
         }
         rouletteIdx = 0;
     }
-
-
-
-
+    
     private void DevPopulateBag()
     {
         foreach(ItemSO item in WorldMachine.World.AllItems)
