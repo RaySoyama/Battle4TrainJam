@@ -5796,6 +5796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6566061096210012764}
+  outAnim: {fileID: 2310840734245963862}
   speed: 1
   combatRange: 9
   inventoryMaxCap: 25

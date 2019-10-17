@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public enum Action
+    {
+        Attacking,
+        Defending,
+        Idle
+
+    }
+
 
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private Animator outAnim;
 
 
     [Header("Stats")]
@@ -15,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private float combatRange = 9;
 
-
+    public Action currentAction = Action.Idle;
 
     [Header("Inventory Stuff")]
 
@@ -64,19 +74,25 @@ public class PlayerManager : MonoBehaviour
     {
         if (WorldMachine.World.currentState == WorldMachine.State.Walking)
         {
-            WalkingUpdate();
+            OnWalkingStay();
 
             roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
             rouletteIdx = -1;
         }
+        else if (WorldMachine.World.currentState == WorldMachine.State.EnterCombat)
+        {
+            anim.SetBool("isWalking", false);
+            outAnim.SetBool("isWalking", false);
+
+            //This shit dont work since it needs to turn off in action, and  reset
+            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+            ItemRouletteUpdate();
+        }
         else if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
         {
-            //This shit dont work since it needs to turn off in action, and  reset
-            //roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-            //ItemRouletteUpdate();
-        }
-        else
-        {
+            anim.SetTrigger("pickItem");
+            outAnim.SetTrigger("pickItem");
+            
             roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
             ItemRouletteUpdate();
 
@@ -86,7 +102,14 @@ public class PlayerManager : MonoBehaviour
             backpackNonCombat.SetActive(false);
             backpackInCombat.SetActive(true);
         }
+        else if (WorldMachine.World.currentState == WorldMachine.State.Action)
+        {
+            anim.SetTrigger("block");
+            outAnim.SetTrigger("block");
 
+            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
+            rouletteIdx = -1;
+        }
 
         if (Input.GetKey(KeyCode.T))
         {
@@ -101,16 +124,54 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    private void WalkingUpdate()
+    private void OnWalkingEnter()
     {
-        CheckRangeOfEnemies();
+        anim.SetBool("isWalking", true);
+        outAnim.SetBool("isWalking", true);
+
 
         backpackNonCombat.SetActive(true);
         backpackInCombat.SetActive(false);
 
-        //play animation of walking
+        CheckRangeOfEnemies();
+    }
+
+    private void OnWalkingStay()
+    {
+        CheckRangeOfEnemies();
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+
+    private void OnWalkingExit()
+    {
+        anim.SetBool("isWalking", false);
+        outAnim.SetBool("isWalking", false);
+    }
+
+
+
+
+
+    private void OnEnterCombatEnter()
+    {
+
+
+
+    }
+
+    private void OnEnterCombatStay()
+    {
+
+
+    }
+
+    private void OnEnterCombatExit()
+    {
+
+
+    }
+
 
     private void CheckRangeOfEnemies()
     {
@@ -120,7 +181,9 @@ public class PlayerManager : MonoBehaviour
             {
                 WorldMachine.World.enemyInCombat = EC;
                 WorldMachine.World.currentState = WorldMachine.State.EnterCombat;
-                //turn off animation for walking
+
+                OnWalkingExit();
+                //onEntercombat
                 return;
             }
         }
@@ -176,6 +239,11 @@ public class PlayerManager : MonoBehaviour
             {
                 rouletteIdx = rouletteList.Count - 1;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+
         }
 
 
