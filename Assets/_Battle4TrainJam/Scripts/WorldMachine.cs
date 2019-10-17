@@ -35,12 +35,33 @@ public class WorldMachine : MonoBehaviour
     [SerializeField]
     private AudioSource ActionAudioSource = null;
 
+
+    [SerializeField]
+    private AudioClip WalkingUke;
+    [SerializeField]
+    private AudioClip WalkingSynth;
+    [SerializeField]
+    private AudioClip WalkingBass;
+    [SerializeField]
+    private AudioClip EnemyAttackingSynth;
+    [SerializeField]
+    private AudioClip EnemyAttackingBass;
+    [SerializeField]
+    private AudioClip CombatNoActionSynth;
+    [SerializeField]
+    private AudioClip CombatNoActionUke;
+    [SerializeField]
+    private AudioClip CombatNoActionBass;
+    
+
+
+    [Space(10)]
     [SerializeField]
     public List<ItemSO> AllItems = new List<ItemSO>();
     //Small to Large, Shield to Sword
 
-    [Space(10)]
     
+    [Space(10)]
 
     [SerializeField]
     private CinemachineVirtualCamera walkingCam;
@@ -74,6 +95,11 @@ public class WorldMachine : MonoBehaviour
     //enemy ref
 
     private Coroutine TimerCourtine = null;
+
+    private delegate void MyDelegate();
+    private MyDelegate FunctionToDo;
+
+
 
     private bool cycleCheck = false;
     private float beatDuration;
@@ -113,7 +139,6 @@ public class WorldMachine : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             currentState = State.Walking;
-            PlayerManager.Player.OnWalkingEnter();
         }
 
 
@@ -123,6 +148,23 @@ public class WorldMachine : MonoBehaviour
             case State.None:
                 break;
             case State.Walking:
+
+                if (currentBeatIndex != 1)
+                {
+                    return;
+                }
+
+                //wait 4 seconds
+                if (TimerCourtine == null)
+                {
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f));
+
+                    PlayerManager.Player.OnWalkingEnter();
+                    
+                    //Audio
+                    UkuleleAudioSource.Play();
+                    UkuleleAudioSource.loop = true;
+                }
                 break;
             case State.EnterCombat:
                 
@@ -135,8 +177,15 @@ public class WorldMachine : MonoBehaviour
                 //wait 4 seconds
                 if (TimerCourtine == null)
                 {
+                    FunctionToDo += PlayerManager.Player.OnEnterCombatExit;
+
                     TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
-                }               
+
+                    //Audio
+                    UkuleleAudioSource.Play();
+                    BassAudioSource.Play();
+                    UkuleleAudioSource.loop = false;
+                }
 
                 break;
 
@@ -151,13 +200,15 @@ public class WorldMachine : MonoBehaviour
                 //wait 4 seconds
                 if (TimerCourtine == null)
                 {
+
+                    FunctionToDo += PlayerManager.Player.OnPreActionExit;
                     TimerCourtine = StartCoroutine(TimerCour(4.0f, State.Action));
 
-                    //On Enter and Exit
-                    PlayerManager.Player.OnEnterCombatExit();
+                    //On Enter and Exit      
                     PlayerManager.Player.OnPreActionEnter();
                     
-
+                    //Audio
+                    SynthAudioSource.Play();
                 }
 
                 break;
@@ -173,14 +224,22 @@ public class WorldMachine : MonoBehaviour
                 //wait 4 seconds
                 if (TimerCourtine == null)
                 {
-                    TimerCourtine = StartCoroutine(TimerCour(4.0f));
 
-                    //On Enter and Exit
-                    PlayerManager.Player.OnPreActionExit();
+
+                    FunctionToDo += PlayerManager.Player.OnActionExit;
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
+
+                    //On Enter
+                    
                     PlayerManager.Player.OnActionEnter();
 
-                    
-                    //Player or Boss wil
+                    //Audio
+                    SynthAudioSource.Play();
+                    UkuleleAudioSource.Play();
+                    BassAudioSource.Play();
+
+
+                    //Player or Boss will decide, BUT FOR NOW, go to Pre
                 }
 
 
@@ -190,13 +249,7 @@ public class WorldMachine : MonoBehaviour
             case State.Death:
                 break;
 
-
-
-
         }
-
-
-        MusicUpdate();
 
     }
 
@@ -217,61 +270,20 @@ public class WorldMachine : MonoBehaviour
         }
     }
 
-    private void MusicUpdate()
-    {
-        switch (currentState)
-        {
-            case State.Walking:
-                if (currentBeatIndex == 1 && UkuleleAudioSource.isPlaying != true)
-                {
-                    UkuleleAudioSource.Play();
-                }
-
-                break;
-
-            case State.EnterCombat:
-
-                if (currentBeatIndex == 1 && (BassAudioSource.isPlaying == false))
-                {
-                    UkuleleAudioSource.Play();
-                    BassAudioSource.Play();
-                }
-
-                break;
-            case State.PreAction:
-
-
-                //Depends on whats happening, enemy chill? dead? attacking?
-                //if (currentBeatIndex == 1 && (SynthAudioSource.isPlaying != true))
-                //{
-                //    SynthAudioSource.Play();
-                //}
-
-                break;
-            case State.Action:
-
-                if (currentBeatIndex == 1 && (BassAudioSource.isPlaying != true))
-                {
-                    SynthAudioSource.Play();
-                    UkuleleAudioSource.Play();
-                    BassAudioSource.Play();
-                }
-
-                break;
-        }
-
-    }
-
     private IEnumerator TimerCour(float time, State nextState)
     {
         yield return new WaitForSeconds(time);
 
         currentState = nextState;
+
+        FunctionToDo.Invoke();
+        FunctionToDo = null;
+
         TimerCourtine = null;
 
     }
 
-      private IEnumerator TimerCour(float time)
+    private IEnumerator TimerCour(float time)
     {
         yield return new WaitForSeconds(time);
         TimerCourtine = null;
