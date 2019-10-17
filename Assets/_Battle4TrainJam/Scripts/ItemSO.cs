@@ -7,6 +7,18 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     [SerializeField]
+    private int id;
+
+    public int ID
+    {
+        get
+        {
+            return id;
+        }
+    }
+
+
+    [SerializeField]
     private GameObject model;
 
     public GameObject Model

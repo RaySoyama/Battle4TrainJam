@@ -181,7 +181,6 @@ public class WorldMachine : MonoBehaviour
         if (BeatTime >= beatDuration)
         {
             BeatTime -= beatDuration;
-            Debug.Log("BEAT");
 
             currentBeatIndex++;
             //HeatbeatAudioSource.Play();

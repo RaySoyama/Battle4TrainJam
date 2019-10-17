@@ -35,13 +35,33 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private float backpackToggleSpeed = 0.4f;
 
-    
+    [Space(10)]
+
+
+    [Header("Roullete Stuff")]
+
+    [SerializeField]
+    private Transform roulleteParent;
+
+
+    [SerializeField]
+    private Transform roulleteLeft;
+
+    [SerializeField]
+    private Transform roulleteFront;
+
+    [SerializeField]
+    private Transform roulleteRight;
+
 
     [SerializeField][ReadOnlyField]
     private int rouletteIdx = -1;
 
     [SerializeField][ReadOnlyField]
     private List<ItemSO> rouletteList;
+
+    [SerializeField]
+    private List<ItemManager> roulleteObjects;
 
     void Start()
     {
@@ -56,9 +76,24 @@ public class PlayerManager : MonoBehaviour
         if (WorldMachine.World.currentState == WorldMachine.State.Walking)
         {
             WalkingUpdate();
+
+            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
+            rouletteIdx = -1;
+        }
+        if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
+        {
+            //This shit dont work since it needs to turn off in action, and  reset
+            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+            ItemRouletteUpdate();
         }
         else
         {
+            roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+            ItemRouletteUpdate();
+
+            //roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
+            //rouletteIdx = -1;
+
             backpackNonCombat.SetActive(false);
             backpackInCombat.SetActive(true);
         }
@@ -128,13 +163,42 @@ public class PlayerManager : MonoBehaviour
     {
         if (inventory.Count == 0)
         {
-            //big sad
             return;
         }
 
         if (rouletteIdx == -1)
-        { 
-            
+        {
+            InitializeItemRoulette();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            rouletteIdx++;
+            if (rouletteIdx == rouletteList.Count)
+            {
+                rouletteIdx = 0;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            rouletteIdx--;
+            if (rouletteIdx == -1)
+            {
+                rouletteIdx = rouletteList.Count;
+            }
+        }
+
+
+        //Render shit
+
+        //this some gross shit
+        foreach(ItemManager item in roulleteObjects)
+        {
+            if (item.ItemData.ID == rouletteList[rouletteIdx].ID)
+            {
+                item.transform.position = roulleteFront.position;
+            }
         }
 
 
@@ -152,7 +216,7 @@ public class PlayerManager : MonoBehaviour
                 rouletteList.Add(item);
             }
         }
-
+        rouletteIdx = 0;
     }
 
     private void DevPopulateBag()
@@ -161,9 +225,8 @@ public class PlayerManager : MonoBehaviour
         {
             if (AddItemToBag(item) == false)
             {
+                //ree
             }
         }
-    }
-
-
+    }   
 }
