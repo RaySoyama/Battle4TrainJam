@@ -69,8 +69,8 @@ public class WorldMachine : MonoBehaviour
     //player ref
     //enemy ref
 
-    
 
+    private bool cycleCheck = false;
     private float beatDuration;
     void Start()
     {
@@ -88,7 +88,6 @@ public class WorldMachine : MonoBehaviour
     {
 
         HeartBeatUpdate();
-        MusicUpdate();
 
 
         if (currentState == State.Walking)
@@ -99,22 +98,76 @@ public class WorldMachine : MonoBehaviour
 
         }
         else
-        {         
+        {
             walkingCam.Priority = 10;
             combatCam.Priority = 11;
 
         }
 
 
-        if(Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             currentState = State.Walking;
         }
-        if (Input.GetKeyDown(KeyCode.L))
+
+
+
+        switch (currentState)
         {
-            currentState = State.PreAction;
+            case State.None:
+                break;
+            case State.Walking:
+                break;
+            case State.EnterCombat:
+
+                if (cycleCheck == false)
+                {
+                    if (currentBeatIndex == 2)
+                    {
+                        cycleCheck = true;
+                    }
+                    break;
+                }
+
+                if (currentBeatIndex == 1)
+                {
+                    cycleCheck = false;
+                    currentState = State.PreAction;
+                }
+
+                break;
+            case State.PreAction:
+
+                if (cycleCheck == false)
+                {
+                    if (currentBeatIndex == 2)
+                    {
+                        cycleCheck = true;
+                    }
+                    break;
+                }
+
+                if (currentBeatIndex == 1)
+                {
+                    cycleCheck = false;
+                    currentState = State.Action;
+                }
+
+                break;
+            case State.Action:
+                break;
+            case State.Win:
+                break;
+            case State.Death:
+                break;
+
+
+
+
         }
 
+
+        MusicUpdate();
 
     }
 
@@ -141,20 +194,39 @@ public class WorldMachine : MonoBehaviour
         switch (currentState)
         {
             case State.Walking:
-                if (currentBeatIndex == 1 && UkuleleAudioSource.isPlaying == false)
+                if (currentBeatIndex == 1 && UkuleleAudioSource.isPlaying != true)
                 {
                     UkuleleAudioSource.Play();
                 }
 
                 break;
-            case State.PreAction:
-                if (currentBeatIndex == 1 && (UkuleleAudioSource.isPlaying == false || BassAudioSource.isPlaying == false))
+
+            case State.EnterCombat:
+                if (currentBeatIndex == 1 && (BassAudioSource.isPlaying == false))
                 {
                     UkuleleAudioSource.Play();
                     BassAudioSource.Play();
                 }
-                break;
 
+                break;
+            case State.PreAction:
+
+                if (currentBeatIndex == 1 && (SynthAudioSource.isPlaying != true))
+                {
+                    SynthAudioSource.Play();
+                }
+
+                break;
+            case State.Action:
+
+                if (currentBeatIndex == 1 && (BassAudioSource.isPlaying != true))
+                {
+                    SynthAudioSource.Play();
+                    UkuleleAudioSource.Play();
+                    BassAudioSource.Play();
+                }
+
+                break;
         }
 
     }
