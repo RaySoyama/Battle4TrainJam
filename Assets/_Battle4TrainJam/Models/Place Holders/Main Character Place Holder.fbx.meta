@@ -3,18 +3,97 @@ guid: 5534ea506b1c48149bfc7de76919b0c2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Backpack
+    100002: Backpack_Root
+    100004: Character_Mesh
+    100006: Face_Root
+    100008: Helmet
+    100010: Hips
+    100012: Joints
+    100014: L_Ankle
+    100016: L_Arm_End
+    100018: L_Elbow
+    100020: L_Eye
+    100022: L_Foot
+    100024: L_Hip
+    100026: L_Knee
+    100028: L_Leg_END
+    100030: L_Shoulder
+    100032: L_Wrist
+    100034: //RootNode
+    100036: Nose
+    100038: Plume_1
+    100040: Plume_2
+    100042: Plume_3
+    100044: Plume_4
+    100046: Plume_5
+    100048: Plume_6
+    100050: Plume_7
+    100052: Plume_8_END
+    100054: Potion_1
+    100056: Potion_2
+    100058: Potion_3
+    100060: R_Ankle
+    100062: R_Arm_END
+    100064: R_Elbow
+    100066: R_Eye
+    100068: R_Foot
+    100070: R_Hip
+    100072: R_Knee
+    100074: R_Leg_END
+    100076: R_Shoulder
+    100078: R_Wrist
+    100080: Root
+    100082: Visor
+    100084: Visor_END
+    400000: Backpack
+    400002: Backpack_Root
+    400004: Character_Mesh
+    400006: Face_Root
+    400008: Helmet
+    400010: Hips
+    400012: Joints
+    400014: L_Ankle
+    400016: L_Arm_End
+    400018: L_Elbow
+    400020: L_Eye
+    400022: L_Foot
+    400024: L_Hip
+    400026: L_Knee
+    400028: L_Leg_END
+    400030: L_Shoulder
+    400032: L_Wrist
+    400034: //RootNode
+    400036: Nose
+    400038: Plume_1
+    400040: Plume_2
+    400042: Plume_3
+    400044: Plume_4
+    400046: Plume_5
+    400048: Plume_6
+    400050: Plume_7
+    400052: Plume_8_END
+    400054: Potion_1
+    400056: Potion_2
+    400058: Potion_3
+    400060: R_Ankle
+    400062: R_Arm_END
+    400064: R_Elbow
+    400066: R_Eye
+    400068: R_Foot
+    400070: R_Hip
+    400072: R_Knee
+    400074: R_Leg_END
+    400076: R_Shoulder
+    400078: R_Wrist
+    400080: Root
+    400082: Visor
+    400084: Visor_END
     2100000: Character_Texture
-    2300000: //RootNode
-    3300000: //RootNode
+    2300000: Character_Mesh
+    3300000: Character_Mesh
     4300000: Character_Mesh
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Character_Texture
-    second: {fileID: 2100000, guid: c2b563b0729c17d4b9b4f6d03dd92b3b, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
