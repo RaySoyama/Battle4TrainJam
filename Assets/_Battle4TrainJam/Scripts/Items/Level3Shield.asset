@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level3Shield
   m_EditorClassIdentifier: 
   id: 4
-  model: {fileID: 100000, guid: 9b7e15290e74be549a0187849667bbf7, type: 3}
+  prefab: {fileID: 2173765219583255568, guid: dd65971add3d26448b01b165996a3717, type: 3}
   isShield: 1
   stat: 20
   size: 9

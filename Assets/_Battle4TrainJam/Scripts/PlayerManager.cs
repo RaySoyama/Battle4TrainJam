@@ -6,10 +6,9 @@ public class PlayerManager : MonoBehaviour
 {
     public enum Action
     {
+        Idle,
         Attacking,
-        Defending,
-        Idle
-
+        Blocking
     }
 
     public static PlayerManager Player;
@@ -21,12 +20,16 @@ public class PlayerManager : MonoBehaviour
 
 
     [Header("Stats")]
+    public int health;
+
     [SerializeField]
     private float speed = 3;
     [SerializeField]
     private float combatRange = 9;
 
     public Action currentAction = Action.Idle;
+
+    public ItemSO currentItem;
 
     [Header("Inventory Stuff")]
 
@@ -41,10 +44,20 @@ public class PlayerManager : MonoBehaviour
     private GameObject backpackInCombat;
 
     [SerializeField]
-    private GameObject backpackNonCombat;
+    private List<ItemManager> BackpackUI    ;
 
     [SerializeField]
+    private GameObject backpackNonCombat;
+
+    [Space(10)]
+    [SerializeField]
     private float backpackToggleSpeed = 0.4f;
+
+
+    public List<GameObject> ItemSpawnPos;
+
+    public List<ItemManager> ItemSpawnData;
+
 
     [Space(10)]
 
@@ -71,10 +84,12 @@ public class PlayerManager : MonoBehaviour
             Player = this;
         }
 
-        DevPopulateBag();
+
+        AddItemToBag(WorldMachine.World.AllItems[0]);
+        AddItemToBag(WorldMachine.World.AllItems[1]);
+        //DevPopulateBag();
 
         InitializeItemRoulette();
-
     }
 
     void Update()
@@ -101,8 +116,8 @@ public class PlayerManager : MonoBehaviour
                 OnActionStay();
 
                 break;
-            case WorldMachine.State.Win:
-
+            case WorldMachine.State.PostKill:
+                OnPostKillStay();
                 break;
             case WorldMachine.State.Death:
 
@@ -120,6 +135,14 @@ public class PlayerManager : MonoBehaviour
             backpackInCombat.transform.localScale = Vector3.Lerp(backpackInCombat.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
             //backpackNonCombat.transform.localScale = Vector3.Lerp(backpackNonCombat.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
         }
+
+        //Dev Test
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            DoAttackDamageCamdenThisIsYou();
+        }
+
+
     }
 
 
@@ -141,8 +164,6 @@ public class PlayerManager : MonoBehaviour
     {
         //Remove Item Menu
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
-        rouletteIdx = -1;
-
 
         CheckRangeOfEnemies();
 
@@ -153,6 +174,7 @@ public class PlayerManager : MonoBehaviour
     {
         anim.SetBool("isWalking", false);
         outAnim.SetBool("isWalking", false);
+        InitializeItemRoulette();
     }
 
 
@@ -161,20 +183,22 @@ public class PlayerManager : MonoBehaviour
 
     public void OnEnterCombatEnter()
     {
-
-
-
+        backpackNonCombat.SetActive(false);
+        backpackInCombat.SetActive(true);
     }
 
     private void OnEnterCombatStay()
     {
-        //Open Menu
+        //Open Menu JK
+        /*
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+        ItemRouletteInput();
+        ItemRouletteRender();
+         */
     }
 
     public void OnEnterCombatExit()
     {
-        ItemRouletteUpdate();
 
     }
 
@@ -187,24 +211,48 @@ public class PlayerManager : MonoBehaviour
         anim.SetTrigger("pickItem");
         outAnim.SetTrigger("pickItem");
 
+        backpackNonCombat.SetActive(false);
+        backpackInCombat.SetActive(true);
     }
 
     private void OnPreActionStay()
     {
-        //Keep Inventory Open
-        roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-        ItemRouletteUpdate();
+        
+        //Keep Inventory Open 
+        //if (WorldMachine.World.currentBeatIndex < 7)
+        //{
+        //}
+        
+        ItemRouletteInput();
 
-        backpackNonCombat.SetActive(false);
-        backpackInCombat.SetActive(true);
+        ItemRouletteRender();
+
+        PickUpSpawnItemInput();
+        roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+        
     }
     
     public void OnPreActionExit()
     {
+        switch (currentAction)
+        {
+            case Action.Idle:
 
 
-        anim.SetTrigger("block");
-        outAnim.SetTrigger("block");
+                break;
+
+            case Action.Attacking:
+                anim.SetTrigger("attack");
+                outAnim.SetTrigger("attack");
+
+                break;
+
+            case Action.Blocking:
+                anim.SetTrigger("block");
+                outAnim.SetTrigger("block");
+
+                break;
+        }
     }
 
 
@@ -225,11 +273,37 @@ public class PlayerManager : MonoBehaviour
         //logic
     }
 
-
     public void OnActionExit()
     {
         //Determine shit
+        InitializeItemRoulette();
+    }
 
+
+
+    public void OnPostKillEnter()
+    { 
+        //celebrate Anim if we make one
+        //currently an idle
+    }
+    private void OnPostKillStay()
+    {
+
+        ItemRouletteInput();
+        ItemRouletteRender();
+
+        PickUpSpawnItemInput();
+    }
+    public void OnPostKillExit()
+    {
+        foreach (ItemManager IM in ItemSpawnData)
+        {
+            if (IM != null)
+            { 
+                Destroy(IM.gameObject);
+            }
+        }
+        ItemSpawnData.Clear();
     }
     
 
@@ -250,6 +324,40 @@ public class PlayerManager : MonoBehaviour
     
     }
 
+
+    private void PickUpSpawnItemInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (ItemSpawnData[0] != null)
+            {
+                if (AddItemToBag(ItemSpawnData[0].ItemData) == true)
+                {
+                    Destroy(ItemSpawnData[0].gameObject);
+                    ItemSpawnData[0] = null;
+                    InitializeItemRoulette();
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (ItemSpawnData[1] != null)
+            {
+                if (AddItemToBag(ItemSpawnData[1].ItemData) == true)
+                {
+                    Destroy(ItemSpawnData[1].gameObject);
+                    ItemSpawnData[1] = null;
+                    InitializeItemRoulette();
+                }
+            }
+        }
+
+
+    }
+
+
+
     public bool AddItemToBag(ItemSO newItem)
     {
         if(inventorySize + newItem.Size > 25)
@@ -260,18 +368,39 @@ public class PlayerManager : MonoBehaviour
 
         inventory.Add(newItem);
         inventorySize += newItem.Size;
+
+        foreach (ItemManager IM in BackpackUI)
+        { 
+            if(IM.ItemData == newItem)
+            {
+                IM.count++;
+                IM.CountText.text = $"x{IM.count}";
+            }
+        }
+
+        
         //Destroy Item?
-        //Add to Visual Inventory
+
         return true;
     }
     
     public void RemoveItemFromBag(ItemSO newItem)
     {
         inventory.Remove(newItem);
-        inventorySize -= newItem.Size;    
+        inventorySize -= newItem.Size;
+
+        foreach (ItemManager IM in BackpackUI)
+        {
+            if (IM.ItemData == newItem)
+            {
+                IM.count--;
+                IM.CountText.text = $"x{IM.count}";
+            }
+        }
+
     }
 
-    private void ItemRouletteUpdate()
+    private void ItemRouletteInput()
     {
         if (inventory.Count == 0)
         {
@@ -284,42 +413,105 @@ public class PlayerManager : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (currentAction == Action.Idle)
         {
-            rouletteIdx++;
-            if (rouletteIdx == rouletteList.Count)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                rouletteIdx = 0;
+                rouletteIdx++;
+                if (rouletteIdx == rouletteList.Count)
+                {
+                    rouletteIdx = 0;
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            rouletteIdx--;
-            if (rouletteIdx == -1)
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                rouletteIdx = rouletteList.Count - 1;
+                rouletteIdx--;
+                if (rouletteIdx == -1)
+                {
+                    rouletteIdx = rouletteList.Count - 1;
+                }
             }
+
+
+            //Cant 'use' an item outside of preaction
+            if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
+            { 
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                //pick item, do damage
+                if (rouletteList[rouletteIdx].IsShield == true)
+                {
+                    currentAction = Action.Blocking;
+                }
+
+                if (rouletteList[rouletteIdx].IsShield == false)
+                {
+                    currentAction = Action.Attacking;
+                }
+
+
+                //Move s hit up
+
+                foreach (ItemManager IM in roulleteObjects)
+                {
+                    if (IM.ItemData == rouletteList[rouletteIdx])
+                    { 
+                        IM.gameObject.transform.Translate(Vector3.up);
+                    }
+                }
+
+                currentItem = rouletteList[rouletteIdx];
+
+                RemoveItemFromBag(rouletteList[rouletteIdx]);
+            }
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                //throw shit out
+                RemoveItemFromBag(rouletteList[rouletteIdx]);
+                InitializeItemRoulette();
+            }
+
+
+
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-
-
-
-            RemoveItemFromBag(rouletteList[rouletteIdx]);
-        }
-
-
+    private void ItemRouletteRender()
+    {
         //Render shit
-
-        //this some gross shit
-        foreach(ItemManager item in roulleteObjects)
+        foreach (ItemManager item in roulleteObjects)
         {
+            if (rouletteList.Count == 0)
+            {
+                item.transform.localScale = Vector3.zero;
+
+                continue;
+            }
+
+
             if (item.ItemData.ID == rouletteList[rouletteIdx].ID)
             {
                 item.transform.localScale = Vector3.Lerp(item.transform.localScale, Vector3.one, Time.deltaTime * backpackToggleSpeed);
 
-                roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,Vector3.up * (90 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                /*
+                if (transform.localEulerAngles.y - (30 + (item.ItemData.ID * 60)) > 30)
+                {
+                    roulleteParent.transform.localEulerAngles = Vector3.Lerp(new Vector3(roulleteParent.transform.localEulerAngles.x, roulleteParent.transform.localEulerAngles.y + 360, roulleteParent.transform.localEulerAngles.z),
+                                                                Vector3.up * (30 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                }
+                else if (transform.localEulerAngles.y - (30 + (item.ItemData.ID * 60)) < 30)
+                {
+                    roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,
+                                                              Vector3.up * (390 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                }
+                else 
+                {
+                }
+                 */
+                    roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,
+                                                                Vector3.up * (30 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
                 //not a high prio fix for the loop back bug
             }
             else
@@ -328,14 +520,18 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-
-
     }
+
+
 
     private void InitializeItemRoulette()
     {
+        currentAction = Action.Idle;
+        currentItem = null;
+
         //get items accesable
         rouletteList.Clear();
+
         foreach (ItemSO item in WorldMachine.World.AllItems)
         {
             if (inventory.Contains(item) == true && rouletteList.Contains(item) == false)
@@ -343,11 +539,19 @@ public class PlayerManager : MonoBehaviour
                 rouletteList.Add(item);
             }
         }
+
+        foreach (ItemManager IM in roulleteObjects)
+        {
+            IM.gameObject.transform.localPosition = new Vector3(IM.gameObject.transform.localPosition.x,0, IM.gameObject.transform.localPosition.z);
+        }
+
         rouletteIdx = 0;
     }
     
     private void DevPopulateBag()
     {
+        AddItemToBag(WorldMachine.World.AllItems[5]);
+
         foreach(ItemSO item in WorldMachine.World.AllItems)
         {
             if (AddItemToBag(item) == false)
@@ -356,4 +560,15 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+    
+
+    public void DoAttackDamageCamdenThisIsYou()
+    {
+        //Enemy should be alive
+        //Do Effect
+        //oh my god, the reason why we divide by 2, is cuz the outline will also call the fucking do damage function tooooooooo
+        WorldMachine.World.enemyInCombat.currentHP -= currentItem.Stat;
+    }
+
 }

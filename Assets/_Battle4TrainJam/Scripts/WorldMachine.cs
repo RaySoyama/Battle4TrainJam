@@ -12,7 +12,7 @@ public class WorldMachine : MonoBehaviour
         EnterCombat,
         PreAction,
         Action,
-        Win,
+        PostKill,
         Death
     }
 
@@ -21,38 +21,13 @@ public class WorldMachine : MonoBehaviour
 
 
     [SerializeField]
-    private AudioSource HeatbeatAudioSource = null;
-
-    [SerializeField]
-    private AudioSource BassAudioSource = null;
-
-    [SerializeField]
-    private AudioSource UkuleleAudioSource = null;
-
-    [SerializeField]
-    private AudioSource SynthAudioSource = null;
-
-    [SerializeField]
-    private AudioSource ActionAudioSource = null;
+    private List<string> AudioNameList;
 
 
     [SerializeField]
-    private AudioClip WalkingUke;
-    [SerializeField]
-    private AudioClip WalkingSynth;
-    [SerializeField]
-    private AudioClip WalkingBass;
-    [SerializeField]
-    private AudioClip EnemyAttackingSynth;
-    [SerializeField]
-    private AudioClip EnemyAttackingBass;
-    [SerializeField]
-    private AudioClip CombatNoActionSynth;
-    [SerializeField]
-    private AudioClip CombatNoActionUke;
-    [SerializeField]
-    private AudioClip CombatNoActionBass;
-    
+    private List<AudioSource> AudioSourceList;
+
+    private Dictionary<string, AudioSource> AudioLibrary;
 
 
     [Space(10)]
@@ -73,9 +48,6 @@ public class WorldMachine : MonoBehaviour
 
     [SerializeField]
     private float BeatsPerMinute = 120;
-
-    [SerializeField][ReadOnlyField]
-    private float BeatTime;
 
     public int currentBeatIndex;
 
@@ -101,25 +73,36 @@ public class WorldMachine : MonoBehaviour
 
 
 
-    private bool cycleCheck = false;
+    private bool audioSetUp = false;
+
     private float beatDuration;
     void Start()
     {
         if (World == null)
         {
-            World = this;    
+            World = this;
         }
 
         currentBeatIndex = 0;
-        BeatTime = 0;
+
         beatDuration = 60.0f / BeatsPerMinute;
+
+        InvokeRepeating("HeartBeatUpdate", 1.0f, beatDuration);
+
+
+
+        //Make Dictonary of all sounds
+        AudioLibrary = new Dictionary<string, AudioSource>();
+
+        for (int i = 0; i < AudioSourceList.Count; i++)
+        {
+            AudioLibrary.Add(AudioNameList[i], AudioSourceList[i]);
+        }
+
     }
 
     void Update()
     {
-
-        HeartBeatUpdate();
-
         //Camera
         if (currentState == State.Walking)
         {
@@ -160,10 +143,11 @@ public class WorldMachine : MonoBehaviour
                     TimerCourtine = StartCoroutine(TimerCour(4.0f));
 
                     PlayerManager.Player.OnWalkingEnter();
-                    
+
                     //Audio
-                    UkuleleAudioSource.Play();
-                    UkuleleAudioSource.loop = true;
+                    AudioLibrary["Bass3"].volume = 1;
+                    AudioLibrary["Synth3"].volume = 1;
+                    AudioLibrary["Uke3"].volume = 1;
                 }
                 break;
             case State.EnterCombat:
@@ -181,12 +165,17 @@ public class WorldMachine : MonoBehaviour
 
                     TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
 
-                    //Audio
-                    UkuleleAudioSource.Play();
-                    BassAudioSource.Play();
-                    UkuleleAudioSource.loop = false;
-                }
+                    enemyInCombat.OnEnterCombatEnter();
 
+                    //Audio
+                    AudioLibrary["Uke1"].volume = 1;
+
+                    AudioLibrary["Bass3"].volume = 0;
+                    AudioLibrary["Synth3"].volume = 0;
+                    AudioLibrary["Uke3"].volume = 0;
+
+                }
+                 
                 break;
 
             case State.PreAction:
@@ -206,9 +195,12 @@ public class WorldMachine : MonoBehaviour
 
                     //On Enter and Exit      
                     PlayerManager.Player.OnPreActionEnter();
-                    
+                    enemyInCombat.OnPreActionEnter();
+
+
                     //Audio
-                    SynthAudioSource.Play();
+
+
                 }
 
                 break;
@@ -224,19 +216,16 @@ public class WorldMachine : MonoBehaviour
                 //wait 4 seconds
                 if (TimerCourtine == null)
                 {
-
-
-                    FunctionToDo += PlayerManager.Player.OnActionExit;
-                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, true));
 
                     //On Enter
                     
                     PlayerManager.Player.OnActionEnter();
 
                     //Audio
-                    SynthAudioSource.Play();
-                    UkuleleAudioSource.Play();
-                    BassAudioSource.Play();
+                    //SynthAudioSource.Play();
+                    //UkuleleAudioSource.Play();
+                    //BassAudioSource.Play();
 
 
                     //Player or Boss will decide, BUT FOR NOW, go to Pre
@@ -244,7 +233,33 @@ public class WorldMachine : MonoBehaviour
 
 
                 break;
-            case State.Win:
+            case State.PostKill:
+
+                if (currentBeatIndex != 1)
+                {
+                    return;
+                }
+
+                //wait 4 seconds
+                if (TimerCourtine == null)
+                {
+                    FunctionToDo += PlayerManager.Player.OnPostKillExit;
+
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.Walking));
+
+                    //On Enter
+                    PlayerManager.Player.OnPostKillEnter();
+
+
+                    //Audio Victory
+                    //SynthAudioSource.Play();
+                    //UkuleleAudioSource.Play();
+                    //BassAudioSource.Play();
+
+
+                    //Player or Boss will decide, BUT FOR NOW, go to Pre
+                }
+
                 break;
             case State.Death:
                 break;
@@ -255,19 +270,24 @@ public class WorldMachine : MonoBehaviour
 
     private void HeartBeatUpdate()
     {
-        BeatTime += Time.deltaTime;
-        if (BeatTime >= beatDuration)
+        currentBeatIndex++;
+
+        if (audioSetUp == false)
         {
-            BeatTime -= beatDuration;
-
-            currentBeatIndex++;
-            //HeatbeatAudioSource.Play();
-
-            if (currentBeatIndex > 8)
+            audioSetUp = true;
+            foreach (AudioSource kyak in AudioSourceList)
             {
-                currentBeatIndex = 1;
+                kyak.Play();
+                kyak.volume = 0;
             }
         }
+
+
+        if (currentBeatIndex > 8)
+        {
+            currentBeatIndex = 1;
+        }
+
     }
 
     private IEnumerator TimerCour(float time, State nextState)
@@ -289,7 +309,90 @@ public class WorldMachine : MonoBehaviour
         TimerCourtine = null;
 
     }
+    
+    private IEnumerator TimerCour(float time, bool ActionCheck)
+    {
+        yield return new WaitForSeconds(time);
+
+        if (enemyInCombat.currentHP <= 0)
+        {
+            //Enemy killed
+            //play enemy animation
+
+            PlayerManager.Player.OnActionExit();
+            PlayerManager.Player.OnPostKillEnter();
+
+            AllEnemies.Remove(enemyInCombat);
+
+            //Spawn Kill Items
+            foreach (ItemManager IM in PlayerManager.Player.ItemSpawnData)
+            {
+                if (IM != null)
+                { 
+                    Destroy(IM.gameObject);
+                }
+            }
+            PlayerManager.Player.ItemSpawnData.Clear();
+
+
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnDeathDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnDeathDrops.Count))].Prefab,PlayerManager.Player.ItemSpawnPos[0].transform).GetComponent<ItemManager>());
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnDeathDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnDeathDrops.Count))].Prefab,PlayerManager.Player.ItemSpawnPos[1].transform).GetComponent<ItemManager>());
 
 
 
+            currentState = State.PostKill;
+            enemyInCombat = null;
+        }
+        //else if player dead
+        else
+        {
+            currentState = State.PreAction;
+            PlayerManager.Player.OnActionExit();
+
+            //drop items
+            foreach (ItemManager IM in PlayerManager.Player.ItemSpawnData)
+            {
+                if (IM != null)
+                { 
+                    Destroy(IM.gameObject);
+                }
+            }
+            PlayerManager.Player.ItemSpawnData.Clear();
+
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnTurnDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnTurnDrops.Count))].Prefab, PlayerManager.Player.ItemSpawnPos[0].transform).GetComponent<ItemManager>());
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnTurnDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnTurnDrops.Count))].Prefab, PlayerManager.Player.ItemSpawnPos[1].transform).GetComponent<ItemManager>());
+
+
+        }
+
+
+
+        TimerCourtine = null;
+
+    }
+
+
+    //Reaason its on world machine is cuz if not all enemies will attack, regardless of agro
+    public void EnemyAttacksPlayerEvent()
+    {
+        if (PlayerManager.Player.currentAction == PlayerManager.Action.Blocking)
+        {
+            if (enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat > 0)
+            {
+                //do nothing
+            }
+            else
+            {
+                PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat;
+
+                //Particle burst for hit
+            }
+        }
+        else 
+        {
+            PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack;
+        }
+
+
+    }
 }

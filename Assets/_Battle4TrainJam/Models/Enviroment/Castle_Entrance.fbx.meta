@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: 9610669bc3247e640a504afb3772681d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: pCube115
+    100004: pCube116
+    100006: pCube117
+    100008: pCube118
+    100010: pCube119
+    100012: pCube121
+    100014: pCube123
+    100016: pCube124
+    100018: pCube125
+    100020: pCube126
+    100022: pCube127
+    100024: pCube128
+    100026: pCube129
+    100028: pCube130
+    100030: pCube131
+    100032: pCube132
+    100034: pCube133
+    100036: pCube90
+    100038: pCube91
+    100040: pCube92
+    100042: pCube93
+    100044: pCube94
+    100046: pCube95
+    100048: pCube96
+    100050: pCube99
+    100052: transform15
+    100054: transform16
+    100056: transform17
+    100058: transform18
+    100060: transform19
+    100062: transform20
+    100064: transform21
+    100066: transform22
+    100068: transform23
+    100070: transform24
+    100072: transform25
+    100074: transform26
+    100076: transform27
+    100078: transform28
+    100080: transform29
+    100082: transform30
+    100084: transform31
+    100086: transform32
+    100088: transform33
+    100090: transform34
+    100092: transform35
+    100094: transform36
+    100096: transform37
+    100098: transform38
+    400000: //RootNode
+    400002: pCube115
+    400004: pCube116
+    400006: pCube117
+    400008: pCube118
+    400010: pCube119
+    400012: pCube121
+    400014: pCube123
+    400016: pCube124
+    400018: pCube125
+    400020: pCube126
+    400022: pCube127
+    400024: pCube128
+    400026: pCube129
+    400028: pCube130
+    400030: pCube131
+    400032: pCube132
+    400034: pCube133
+    400036: pCube90
+    400038: pCube91
+    400040: pCube92
+    400042: pCube93
+    400044: pCube94
+    400046: pCube95
+    400048: pCube96
+    400050: pCube99
+    400052: transform15
+    400054: transform16
+    400056: transform17
+    400058: transform18
+    400060: transform19
+    400062: transform20
+    400064: transform21
+    400066: transform22
+    400068: transform23
+    400070: transform24
+    400072: transform25
+    400074: transform26
+    400076: transform27
+    400078: transform28
+    400080: transform29
+    400082: transform30
+    400084: transform31
+    400086: transform32
+    400088: transform33
+    400090: transform34
+    400092: transform35
+    400094: transform36
+    400096: transform37
+    400098: transform38
+    2100000: Bricks_Trim
+    2300000: pCube133
+    3300000: pCube133
+    4300000: pCube133
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks_Trim
+    second: {fileID: 2100000, guid: d8289ee7e9d893d48add61e4376f959c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
