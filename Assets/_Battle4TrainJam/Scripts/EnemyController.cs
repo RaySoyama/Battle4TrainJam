@@ -47,8 +47,6 @@ public class EnemyController : MonoBehaviour
         anim.SetTrigger("taunt");
         outlineAnim.SetTrigger("taunt");
     }
-
-
     public void OnPreActionEnter()
     {
         if (enemyStats.AttackPattern[attackPatternIndex] == EnemySO.Action.Attack)
@@ -72,6 +70,14 @@ public class EnemyController : MonoBehaviour
     
     }
 
+
+    public void OnActionExit()
+    {
+        //Spawn Items
+
+
+
+    }
 
 
 }

@@ -16,6 +16,8 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    [ReadOnlyField]
+    public int count = 0;
 
     [SerializeField]
     private Text countText;

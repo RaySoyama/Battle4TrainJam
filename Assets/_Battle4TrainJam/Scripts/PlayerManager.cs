@@ -44,10 +44,15 @@ public class PlayerManager : MonoBehaviour
     private GameObject backpackInCombat;
 
     [SerializeField]
+    private List<ItemManager> BackpackUI    ;
+
+    [SerializeField]
     private GameObject backpackNonCombat;
 
     [SerializeField]
     private float backpackToggleSpeed = 0.4f;
+
+
 
     [Space(10)]
 
@@ -304,6 +309,8 @@ public class PlayerManager : MonoBehaviour
 
 
 
+
+
     public bool AddItemToBag(ItemSO newItem)
     {
         if(inventorySize + newItem.Size > 25)
@@ -314,15 +321,36 @@ public class PlayerManager : MonoBehaviour
 
         inventory.Add(newItem);
         inventorySize += newItem.Size;
+
+        foreach (ItemManager IM in BackpackUI)
+        { 
+            if(IM.ItemData == newItem)
+            {
+                IM.count++;
+                IM.CountText.text = $"x{IM.count}";
+            }
+        }
+
+        
         //Destroy Item?
-        //Add to Visual Inventory
+
         return true;
     }
     
     public void RemoveItemFromBag(ItemSO newItem)
     {
         inventory.Remove(newItem);
-        inventorySize -= newItem.Size;    
+        inventorySize -= newItem.Size;
+
+        foreach (ItemManager IM in BackpackUI)
+        {
+            if (IM.ItemData == newItem)
+            {
+                IM.count--;
+                IM.CountText.text = $"x{IM.count}";
+            }
+        }
+
     }
 
     private void ItemRouletteInput()
