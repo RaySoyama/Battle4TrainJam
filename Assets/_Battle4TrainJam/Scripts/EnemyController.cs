@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
     private int attackPatternIndex = 0;
 
 
+    public ParticleSystem particle;
+
     void Start()
     {
         currentHP = enemyStats.Health;
