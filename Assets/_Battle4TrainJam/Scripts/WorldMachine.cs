@@ -75,7 +75,9 @@ public class WorldMachine : MonoBehaviour
     private GameObject GameOverScreen;
 
     //Colors for abilities
-
+    public Color Rare1;
+    public Color Rare2;
+    public Color Rare3;
 
 
 
@@ -282,7 +284,7 @@ public class WorldMachine : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
                 {
-                    SceneManager.LoadScene("Rays Dev Scene");
+                    SceneManager.LoadScene("BuildScene");
                 }
 
                 break;

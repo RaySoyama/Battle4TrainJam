@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Battle4TrainJam/_Scenes/Rays Scenes/Rays Dev Scene.unity
-    guid: c206c10f7e0bd2341b92adb1efb586ce
+    path: Assets/_Battle4TrainJam/_Scenes/Build Scenes/BuildScene.unity
+    guid: a2b1ad326bc2c6842a5eb567b4291055
   m_configObjects: {}

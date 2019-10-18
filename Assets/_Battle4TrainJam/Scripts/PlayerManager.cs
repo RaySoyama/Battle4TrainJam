@@ -81,6 +81,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private List<ItemManager> roulleteObjects;
 
+    [Space(10)]
+    [Header("Color")]
+
+    [SerializeField]
+    private List<GameObject> VFX;
+
+
     void Start()
     {
 
@@ -251,6 +258,7 @@ public class PlayerManager : MonoBehaviour
     
     public void OnPreActionExit()
     {
+
         switch (currentAction)
         {
             case Action.Idle:
@@ -262,14 +270,93 @@ public class PlayerManager : MonoBehaviour
                 anim.SetTrigger("attack");
                 outAnim.SetTrigger("attack");
 
+                foreach (GameObject PS in VFX)
+                {
+                    var cachePart = PS.GetComponent<ParticleSystem>();
+
+                    var cacheMesh = PS.GetComponent<SpriteRenderer>();
+
+
+                    if (cachePart != null)
+                    {
+                        if (currentItem.Rarity == 1)
+                        {
+                            cachePart.startColor = new Color(WorldMachine.World.Rare1.r, WorldMachine.World.Rare1.g, WorldMachine.World.Rare1.b, cachePart.startColor.a);
+                        }
+                        else if (currentItem.Rarity == 2)
+                        {
+                            cachePart.startColor = new Color(WorldMachine.World.Rare2.r, WorldMachine.World.Rare2.g, WorldMachine.World.Rare2.b, cachePart.startColor.a);
+                        }
+                        else if (currentItem.Rarity == 3)
+                        {
+                            cachePart.startColor = new Color(WorldMachine.World.Rare3.r, WorldMachine.World.Rare3.g, WorldMachine.World.Rare3.b, cachePart.startColor.a);
+                        }
+                    }
+                    else if (cacheMesh != null)
+                    {
+                        if (currentItem.Rarity == 1)
+                        {
+                            cacheMesh.color = new Color(WorldMachine.World.Rare1.r, WorldMachine.World.Rare1.g, WorldMachine.World.Rare1.b, cacheMesh.color.a);
+                        }
+                        else if (currentItem.Rarity == 2)
+                        {
+                            cacheMesh.color = new Color(WorldMachine.World.Rare2.r, WorldMachine.World.Rare2.g, WorldMachine.World.Rare2.b, cacheMesh.color.a);
+                        }
+                        else if (currentItem.Rarity == 3)
+                        {
+                            cacheMesh.color = new Color(WorldMachine.World.Rare3.r, WorldMachine.World.Rare3.g, WorldMachine.World.Rare3.b, cacheMesh.color.a);
+                        }
+                    }
+                }
+
                 break;
 
             case Action.Blocking:
                 anim.SetTrigger("block");
                 outAnim.SetTrigger("block");
 
+                foreach (GameObject PS in VFX)
+                {
+                    var cachePart = PS.GetComponent<ParticleSystem>();
+
+                    var cacheMesh = PS.GetComponent<SpriteRenderer>();
+
+
+                    if (cachePart != null)
+                    {
+                        if (currentItem.Rarity == 1)
+                        {
+                            cachePart.startColor = new Color(WorldMachine.World.Rare1.r, WorldMachine.World.Rare1.g, WorldMachine.World.Rare1.b, cachePart.startColor.a);
+                        }
+                        else if (currentItem.Rarity == 2)
+                        {
+                            cachePart.startColor = new Color(WorldMachine.World.Rare2.r, WorldMachine.World.Rare2.g, WorldMachine.World.Rare2.b, cachePart.startColor.a);
+                        }
+                        else if (currentItem.Rarity == 3)
+                        {
+                            cachePart.startColor = new Color(WorldMachine.World.Rare3.r, WorldMachine.World.Rare3.g, WorldMachine.World.Rare3.b, cachePart.startColor.a);
+                        }
+                    }
+                    else if (cacheMesh != null)
+                    {
+                        if (currentItem.Rarity == 1)
+                        {
+                            cacheMesh.color = new Color(WorldMachine.World.Rare1.r, WorldMachine.World.Rare1.g, WorldMachine.World.Rare1.b, cacheMesh.color.a);
+                        }
+                        else if (currentItem.Rarity == 2)
+                        {
+                            cacheMesh.color = new Color(WorldMachine.World.Rare2.r, WorldMachine.World.Rare2.g, WorldMachine.World.Rare2.b, cacheMesh.color.a);
+                        }
+                        else if (currentItem.Rarity == 3)
+                        {
+                            cacheMesh.color = new Color(WorldMachine.World.Rare3.r, WorldMachine.World.Rare3.g, WorldMachine.World.Rare3.b, cacheMesh.color.a);
+                        }
+                    }
+                }
+
                 break;
         }
+
     }
 
 
