@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Medium_Sword_Metal
+  m_Name: Barrel
   m_Shader: {fileID: 4800000, guid: b87cb6c760d4bab46b6f140df5b506f5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
