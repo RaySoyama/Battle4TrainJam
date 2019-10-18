@@ -21,38 +21,13 @@ public class WorldMachine : MonoBehaviour
 
 
     [SerializeField]
-    private AudioSource HeatbeatAudioSource = null;
-
-    [SerializeField]
-    private AudioSource BassAudioSource = null;
-
-    [SerializeField]
-    private AudioSource UkuleleAudioSource = null;
-
-    [SerializeField]
-    private AudioSource SynthAudioSource = null;
-
-    [SerializeField]
-    private AudioSource ActionAudioSource = null;
+    private List<string> AudioNameList;
 
 
     [SerializeField]
-    private AudioClip WalkingUke;
-    [SerializeField]
-    private AudioClip WalkingSynth;
-    [SerializeField]
-    private AudioClip WalkingBass;
-    [SerializeField]
-    private AudioClip EnemyAttackingSynth;
-    [SerializeField]
-    private AudioClip EnemyAttackingBass;
-    [SerializeField]
-    private AudioClip CombatNoActionSynth;
-    [SerializeField]
-    private AudioClip CombatNoActionUke;
-    [SerializeField]
-    private AudioClip CombatNoActionBass;
-    
+    private List<AudioSource> AudioSourceList;
+
+    private Dictionary<string, AudioSource> AudioLibrary;
 
 
     [Space(10)]
@@ -73,9 +48,6 @@ public class WorldMachine : MonoBehaviour
 
     [SerializeField]
     private float BeatsPerMinute = 120;
-
-    [SerializeField][ReadOnlyField]
-    private float BeatTime;
 
     public int currentBeatIndex;
 
@@ -101,25 +73,36 @@ public class WorldMachine : MonoBehaviour
 
 
 
-    private bool cycleCheck = false;
+    private bool audioSetUp = false;
+
     private float beatDuration;
     void Start()
     {
         if (World == null)
         {
-            World = this;    
+            World = this;
         }
 
         currentBeatIndex = 0;
-        BeatTime = 0;
+
         beatDuration = 60.0f / BeatsPerMinute;
+
+        InvokeRepeating("HeartBeatUpdate", 1.0f, beatDuration);
+
+
+
+        //Make Dictonary of all sounds
+        AudioLibrary = new Dictionary<string, AudioSource>();
+
+        for (int i = 0; i < AudioSourceList.Count; i++)
+        {
+            AudioLibrary.Add(AudioNameList[i], AudioSourceList[i]);
+        }
+
     }
 
     void Update()
     {
-
-        HeartBeatUpdate();
-
         //Camera
         if (currentState == State.Walking)
         {
@@ -162,20 +145,9 @@ public class WorldMachine : MonoBehaviour
                     PlayerManager.Player.OnWalkingEnter();
 
                     //Audio
-
-                    UkuleleAudioSource.clip = WalkingUke;
-                    if (!UkuleleAudioSource.isPlaying)
-                        UkuleleAudioSource.Play();
-
-
-                    BassAudioSource.clip = WalkingBass;
-                    if (!BassAudioSource.isPlaying)
-                        BassAudioSource.Play();
-
-                    SynthAudioSource.clip = WalkingSynth;
-                    if (!SynthAudioSource.isPlaying)
-                        SynthAudioSource.Play();
-
+                    AudioLibrary["Bass3"].volume = 1;
+                    AudioLibrary["Synth3"].volume = 1;
+                    AudioLibrary["Uke3"].volume = 1;
                 }
                 break;
             case State.EnterCombat:
@@ -194,9 +166,12 @@ public class WorldMachine : MonoBehaviour
                     TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
 
                     //Audio
+                    AudioLibrary["Uke1"].volume = 1;
 
-                    UkuleleAudioSource.clip = CombatNoActionUke;
-                    UkuleleAudioSource.Play();
+                    AudioLibrary["Bass3"].volume = 0;
+                    AudioLibrary["Synth3"].volume = 0;
+                    AudioLibrary["Uke3"].volume = 0;
+
                 }
                  
                 break;
@@ -268,19 +243,24 @@ public class WorldMachine : MonoBehaviour
 
     private void HeartBeatUpdate()
     {
-        BeatTime += Time.deltaTime;
-        if (BeatTime >= beatDuration)
+        currentBeatIndex++;
+
+        if (audioSetUp == false)
         {
-            BeatTime -= beatDuration;
-
-            currentBeatIndex++;
-            //HeatbeatAudioSource.Play();
-
-            if (currentBeatIndex > 8)
+            audioSetUp = true;
+            foreach (AudioSource kyak in AudioSourceList)
             {
-                currentBeatIndex = 1;
+                kyak.Play();
+                kyak.volume = 0;
             }
         }
+
+
+        if (currentBeatIndex > 8)
+        {
+            currentBeatIndex = 1;
+        }
+
     }
 
     private IEnumerator TimerCour(float time, State nextState)

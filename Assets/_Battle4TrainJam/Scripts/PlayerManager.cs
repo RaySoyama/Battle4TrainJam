@@ -339,9 +339,16 @@ public class PlayerManager : MonoBehaviour
                     currentAction = Action.Attacking;
                 }
 
-                
+
                 //Move s hit up
-                //roulleteObjects[]
+
+                foreach (ItemManager IM in roulleteObjects)
+                {
+                    if (IM.ItemData == rouletteList[rouletteIdx])
+                    { 
+                        IM.gameObject.transform.Translate(Vector3.up);
+                    }
+                }
 
                 currentItem = rouletteList[rouletteIdx];
 
@@ -374,8 +381,10 @@ public class PlayerManager : MonoBehaviour
     {
         currentAction = Action.Idle;
         currentItem = null;
+
         //get items accesable
         rouletteList.Clear();
+
         foreach (ItemSO item in WorldMachine.World.AllItems)
         {
             if (inventory.Contains(item) == true && rouletteList.Contains(item) == false)
@@ -383,6 +392,14 @@ public class PlayerManager : MonoBehaviour
                 rouletteList.Add(item);
             }
         }
+
+        foreach (ItemManager IM in roulleteObjects)
+        {
+            IM.gameObject.transform.localPosition = new Vector3(IM.gameObject.transform.localPosition.x,0, IM.gameObject.transform.localPosition.z);
+        }
+
+
+
         rouletteIdx = 0;
     }
     
