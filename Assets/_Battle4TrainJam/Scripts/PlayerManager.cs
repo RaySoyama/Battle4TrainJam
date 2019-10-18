@@ -337,7 +337,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentAction != Action.Idle)
         {
-            return;
+            return; 
         }
 
         if (Input.GetKeyDown(KeyCode.E))

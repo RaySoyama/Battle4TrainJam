@@ -66,6 +66,9 @@ public class WorldMachine : MonoBehaviour
     //player ref
     //enemy ref
 
+    [SerializeField]
+    private Animator beatAnim;
+
     private Coroutine TimerCourtine = null;
 
     private delegate void MyDelegate();
@@ -274,6 +277,8 @@ public class WorldMachine : MonoBehaviour
 
         if (audioSetUp == false)
         {
+            beatAnim.SetBool("count" , true);
+
             audioSetUp = true;
             foreach (AudioSource kyak in AudioSourceList)
             {
