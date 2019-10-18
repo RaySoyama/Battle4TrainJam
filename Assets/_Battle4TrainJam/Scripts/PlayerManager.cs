@@ -123,7 +123,7 @@ public class PlayerManager : MonoBehaviour
 
 
         HealthPoolUI.text = $"{health}/100";
-        InventorySizeUI.text = $"{inventory.Count}/25";
+        InventorySizeUI.text = $"{inventorySize}/25";
 
         switch (WorldMachine.World.currentState)
         {
