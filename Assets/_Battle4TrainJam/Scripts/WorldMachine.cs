@@ -89,8 +89,6 @@ public class WorldMachine : MonoBehaviour
 
     private bool audioSetUp = false;
 
-    private bool isInDragonArea = false;
-
     private float beatDuration;
     void Start()
     {
@@ -117,7 +115,7 @@ public class WorldMachine : MonoBehaviour
         }
 
 
-        AudioStarter();
+        StartCoroutine(AudioStarter());
 
     }
 
@@ -433,7 +431,8 @@ public class WorldMachine : MonoBehaviour
 
     private IEnumerator AudioStarter()
     {
-
+        
+        AudioLibrary["IntroLoop"].Play();
         AudioLibrary["IntroLoop"].volume = 0.5f;
 
         while (AudioLibrary["IntroLoop"].isPlaying == true)
@@ -442,6 +441,8 @@ public class WorldMachine : MonoBehaviour
         }
 
         AudioLibrary["IntroLoop"].volume = 0.0f;
+
+        AudioLibrary["DungeonLoop"].Play();
         AudioLibrary["DungeonLoop"].volume = 0.5f;
 
         while (PlayerManager.Player.gameObject.transform.position.x < 32)
@@ -449,7 +450,23 @@ public class WorldMachine : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        
+        while (AudioLibrary["DungeonLoop"].volume != 0)
+        {
+            AudioLibrary["DungeonLoop"].volume = AudioLibrary["DungeonLoop"].volume - 5 * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
 
+        AudioLibrary["BossIntro"].Play();
+        AudioLibrary["BossIntro"].volume = 0.5f;
+
+
+        while (AudioLibrary["BossIntro"].isPlaying == true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        AudioLibrary["BossLoop"].Play();
+        AudioLibrary["BossLoop"].volume = 0.5f;
+        
     }
 }
