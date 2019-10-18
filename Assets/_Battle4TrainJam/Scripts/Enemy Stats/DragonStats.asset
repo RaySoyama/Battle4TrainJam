@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a209a662181c343974d365cce2dcdb, type: 3}
   m_Name: DragonStats
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   attack: 15
   rarity: 3
   attackPattern: 00000000000000000100000001000000

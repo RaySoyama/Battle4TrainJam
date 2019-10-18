@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a209a662181c343974d365cce2dcdb, type: 3}
   m_Name: SkeletonStats
   m_EditorClassIdentifier: 
-  health: 3
+  health: 10
   attack: 5
   rarity: 1
   attackPattern: 010000000000000001000000

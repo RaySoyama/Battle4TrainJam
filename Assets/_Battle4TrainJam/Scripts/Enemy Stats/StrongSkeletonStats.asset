@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a209a662181c343974d365cce2dcdb, type: 3}
   m_Name: StrongSkeletonStats
   m_EditorClassIdentifier: 
-  health: 15
+  health: 30
   attack: 10
   rarity: 2
   attackPattern: 00000000010000000000000001000000

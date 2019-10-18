@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class WorldMachine : MonoBehaviour
 {
     public enum State
@@ -66,6 +66,19 @@ public class WorldMachine : MonoBehaviour
     //player ref
     //enemy ref
 
+    [SerializeField]
+    private Animator beatAnim;
+
+    [Space(10)]
+
+    [SerializeField]
+    private GameObject GameOverScreen;
+
+    //Colors for abilities
+
+
+
+
     private Coroutine TimerCourtine = null;
 
     private delegate void MyDelegate();
@@ -90,6 +103,7 @@ public class WorldMachine : MonoBehaviour
         InvokeRepeating("HeartBeatUpdate", 1.0f, beatDuration);
 
 
+        GameOverScreen.SetActive(false);
 
         //Make Dictonary of all sounds
         AudioLibrary = new Dictionary<string, AudioSource>();
@@ -145,9 +159,10 @@ public class WorldMachine : MonoBehaviour
                     PlayerManager.Player.OnWalkingEnter();
 
                     //Audio
-                    AudioLibrary["Bass3"].volume = 1;
-                    AudioLibrary["Synth3"].volume = 1;
-                    AudioLibrary["Uke3"].volume = 1;
+                    AudioLibrary["DrumLoop"].volume = 1;
+                    //AudioLibrary["Bass3"].volume = 1;
+                    //AudioLibrary["Synth3"].volume = 1;
+                    //AudioLibrary["Uke3"].volume = 1;
                 }
                 break;
             case State.EnterCombat:
@@ -168,11 +183,11 @@ public class WorldMachine : MonoBehaviour
                     enemyInCombat.OnEnterCombatEnter();
 
                     //Audio
-                    AudioLibrary["Uke1"].volume = 1;
+                    //AudioLibrary["Uke1"].volume = 1;
 
-                    AudioLibrary["Bass3"].volume = 0;
-                    AudioLibrary["Synth3"].volume = 0;
-                    AudioLibrary["Uke3"].volume = 0;
+                    //AudioLibrary["Bass3"].volume = 0;
+                    //AudioLibrary["Synth3"].volume = 0;
+                    //AudioLibrary["Uke3"].volume = 0;
 
                 }
                  
@@ -262,6 +277,14 @@ public class WorldMachine : MonoBehaviour
 
                 break;
             case State.Death:
+
+                GameOverScreen.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+                {
+                    SceneManager.LoadScene("Rays Dev Scene");
+                }
+
                 break;
 
         }
@@ -274,6 +297,8 @@ public class WorldMachine : MonoBehaviour
 
         if (audioSetUp == false)
         {
+            beatAnim.SetBool("count" , true);
+
             audioSetUp = true;
             foreach (AudioSource kyak in AudioSourceList)
             {
