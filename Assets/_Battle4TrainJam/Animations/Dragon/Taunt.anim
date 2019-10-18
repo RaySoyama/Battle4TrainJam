@@ -1466,115 +1466,229 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 1.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.8
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3
+        time: 2.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
-      2/Bone Breath
-    classID: 1
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.8
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 3
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: EmissionModule.rateOverTime.scalar
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Bone
-      Breath
-    classID: 1
+      Breath/Particle System (1)
+    classID: 198
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 1.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.8
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3
+        time: 2.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Bone
+      Breath/Particle System
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Bone Breath/Particle System
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
-      1/Bone Breath
-    classID: 1
+      1/Bone Breath/Particle System
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Bone Breath/Particle System (1)
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
+      1/Bone Breath/Particle System (1)
+    classID: 198
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -1795,25 +1909,46 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2530852883
-      attribute: 2086281974
+      path: 4114963542
+      attribute: 2883525743
       script: {fileID: 0}
-      typeID: 1
-      customType: 0
+      typeID: 198
+      customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3535264351
-      attribute: 2086281974
+      path: 4047276386
+      attribute: 2883525743
       script: {fileID: 0}
-      typeID: 1
-      customType: 0
+      typeID: 198
+      customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 257265231
-      attribute: 2086281974
+      path: 1635741597
+      attribute: 2883525743
       script: {fileID: 0}
-      typeID: 1
-      customType: 0
+      typeID: 198
+      customType: 27
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 334684371
+      attribute: 2883525743
+      script: {fileID: 0}
+      typeID: 198
+      customType: 27
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2910091575
+      attribute: 2883525743
+      script: {fileID: 0}
+      typeID: 198
+      customType: 27
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 217119890
+      attribute: 2883525743
+      script: {fileID: 0}
+      typeID: 198
+      customType: 27
       isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
@@ -6446,115 +6581,229 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 1.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.8
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3
+        time: 2.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
-      2/Bone Breath
-    classID: 1
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.8
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 3
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: EmissionModule.rateOverTime.scalar
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Bone
-      Breath
-    classID: 1
+      Breath/Particle System (1)
+    classID: 198
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 1.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.8
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3
+        time: 2.5
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Bone
+      Breath/Particle System
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Bone Breath/Particle System
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
-      1/Bone Breath
-    classID: 1
+      1/Bone Breath/Particle System
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Bone Breath/Particle System (1)
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.rateOverTime.scalar
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
+      1/Bone Breath/Particle System (1)
+    classID: 198
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
@@ -6564,6 +6813,39 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Jaw 2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Jaw 2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
+      2/Jaw 2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/R_Wing_1
     classID: 4
     script: {fileID: 0}
@@ -6654,6 +6936,66 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm/L_Knee 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm/L_Knee 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm/L_Knee 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
     path: Joints/Root/Tail_1/Tail_2/Tail_3
     classID: 4
     script: {fileID: 0}
@@ -6684,6 +7026,66 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4
     classID: 4
     script: {fileID: 0}
@@ -6705,6 +7107,129 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
+      1/Jaw 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
+      1/Jaw 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
+      1/Jaw 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/R_Arm/R_Knee 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/R_Arm/R_Knee 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/R_Arm/R_Knee 1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6774,369 +7299,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
-      2/Jaw 2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
-      2/Jaw 2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5/Head
-      2/Jaw 2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm/L_Knee 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm/L_Knee 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/L_Arm/L_Knee 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/L_Wing_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/L_Wing_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/L_Wing_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/R_Arm/R_Knee 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/R_Arm/R_Knee 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Chest/R_Arm/R_Knee 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Jaw
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Jaw
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Jaw
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4
     classID: 4
     script: {fileID: 0}
@@ -7158,159 +7320,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
     path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
-      1/Jaw 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
-      1/Jaw 1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5/Head
-      1/Jaw 1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7350,7 +7359,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7360,7 +7369,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7370,27 +7379,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7400,7 +7389,267 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2/Neck_3_3/Neck_3_4/Neck_3_5
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_3/Neck_3_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_2/Neck_2_2/Neck_2_3/Neck_2_4/Neck_2_5
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/L_Wing_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/L_Wing_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/L_Wing_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Jaw
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Jaw
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Spine_1/Spine_2/Spine_3/Spine_4/Neck_Root/Neck_1/Neck_1_2/Neck_1_3/Neck_1_4/Neck_1_5/Head/Jaw
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Joints/Root/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
