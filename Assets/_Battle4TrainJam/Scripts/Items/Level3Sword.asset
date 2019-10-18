@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level3Sword
   m_EditorClassIdentifier: 
   id: 5
-  model: {fileID: 100000, guid: 90a49f6b9fc846e4c83ffcbc8b0b948c, type: 3}
+  prefab: {fileID: 1576005728318597383, guid: 5eb986be5190ac248a0d8eddd7472b40, type: 3}
   isShield: 0
   stat: 20
   size: 9

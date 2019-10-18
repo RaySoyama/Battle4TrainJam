@@ -19,13 +19,13 @@ public class ItemSO : ScriptableObject
 
 
     [SerializeField]
-    private GameObject model;
+    private GameObject prefab;
 
-    public GameObject Model
+    public GameObject Prefab
     {
         get
         {
-            return model;
+            return prefab;
         }
     }
 
