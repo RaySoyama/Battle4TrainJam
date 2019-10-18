@@ -388,6 +388,10 @@ public class WorldMachine : MonoBehaviour
                 //Particle burst for hit
             }
         }
+        else 
+        {
+            PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack;
+        }
 
 
     }

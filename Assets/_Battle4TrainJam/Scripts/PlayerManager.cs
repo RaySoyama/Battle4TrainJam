@@ -84,6 +84,9 @@ public class PlayerManager : MonoBehaviour
             Player = this;
         }
 
+
+        AddItemToBag(WorldMachine.World.AllItems[0]);
+        AddItemToBag(WorldMachine.World.AllItems[1]);
         //DevPopulateBag();
 
         InitializeItemRoulette();
@@ -285,11 +288,11 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnPostKillStay()
     {
-        PickUpSpawnItemInput();
 
         ItemRouletteInput();
         ItemRouletteRender();
 
+        PickUpSpawnItemInput();
     }
     public void OnPostKillExit()
     {
@@ -492,7 +495,23 @@ public class PlayerManager : MonoBehaviour
             {
                 item.transform.localScale = Vector3.Lerp(item.transform.localScale, Vector3.one, Time.deltaTime * backpackToggleSpeed);
 
-                roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles, Vector3.up * (90 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                /*
+                if (transform.localEulerAngles.y - (30 + (item.ItemData.ID * 60)) > 30)
+                {
+                    roulleteParent.transform.localEulerAngles = Vector3.Lerp(new Vector3(roulleteParent.transform.localEulerAngles.x, roulleteParent.transform.localEulerAngles.y + 360, roulleteParent.transform.localEulerAngles.z),
+                                                                Vector3.up * (30 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                }
+                else if (transform.localEulerAngles.y - (30 + (item.ItemData.ID * 60)) < 30)
+                {
+                    roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,
+                                                              Vector3.up * (390 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                }
+                else 
+                {
+                }
+                 */
+                    roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,
+                                                                Vector3.up * (30 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
                 //not a high prio fix for the loop back bug
             }
             else
@@ -531,6 +550,8 @@ public class PlayerManager : MonoBehaviour
     
     private void DevPopulateBag()
     {
+        AddItemToBag(WorldMachine.World.AllItems[5]);
+
         foreach(ItemSO item in WorldMachine.World.AllItems)
         {
             if (AddItemToBag(item) == false)
@@ -540,7 +561,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-
+    
 
     public void DoAttackDamageCamdenThisIsYou()
     {
