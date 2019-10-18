@@ -160,10 +160,22 @@ public class WorldMachine : MonoBehaviour
                     TimerCourtine = StartCoroutine(TimerCour(4.0f));
 
                     PlayerManager.Player.OnWalkingEnter();
-                    
+
                     //Audio
-                    UkuleleAudioSource.Play();
-                    UkuleleAudioSource.loop = true;
+
+                    UkuleleAudioSource.clip = WalkingUke;
+                    if (!UkuleleAudioSource.isPlaying)
+                        UkuleleAudioSource.Play();
+
+
+                    BassAudioSource.clip = WalkingBass;
+                    if (!BassAudioSource.isPlaying)
+                        BassAudioSource.Play();
+
+                    SynthAudioSource.clip = WalkingSynth;
+                    if (!SynthAudioSource.isPlaying)
+                        SynthAudioSource.Play();
+
                 }
                 break;
             case State.EnterCombat:
@@ -182,11 +194,11 @@ public class WorldMachine : MonoBehaviour
                     TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
 
                     //Audio
-                    UkuleleAudioSource.Play();
-                    BassAudioSource.Play();
-                    UkuleleAudioSource.loop = false;
-                }
 
+                    UkuleleAudioSource.clip = CombatNoActionUke;
+                    UkuleleAudioSource.Play();
+                }
+                 
                 break;
 
             case State.PreAction:
@@ -206,9 +218,10 @@ public class WorldMachine : MonoBehaviour
 
                     //On Enter and Exit      
                     PlayerManager.Player.OnPreActionEnter();
-                    
+
                     //Audio
-                    SynthAudioSource.Play();
+
+
                 }
 
                 break;
@@ -234,9 +247,9 @@ public class WorldMachine : MonoBehaviour
                     PlayerManager.Player.OnActionEnter();
 
                     //Audio
-                    SynthAudioSource.Play();
-                    UkuleleAudioSource.Play();
-                    BassAudioSource.Play();
+                    //SynthAudioSource.Play();
+                    //UkuleleAudioSource.Play();
+                    //BassAudioSource.Play();
 
 
                     //Player or Boss will decide, BUT FOR NOW, go to Pre

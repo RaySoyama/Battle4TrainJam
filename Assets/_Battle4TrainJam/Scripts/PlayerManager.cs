@@ -6,10 +6,9 @@ public class PlayerManager : MonoBehaviour
 {
     public enum Action
     {
+        Idle,
         Attacking,
-        Defending,
-        Idle
-
+        Blocking
     }
 
     public static PlayerManager Player;
@@ -27,6 +26,8 @@ public class PlayerManager : MonoBehaviour
     private float combatRange = 9;
 
     public Action currentAction = Action.Idle;
+
+    public ItemSO currentItem;
 
     [Header("Inventory Stuff")]
 
@@ -170,11 +171,12 @@ public class PlayerManager : MonoBehaviour
     {
         //Open Menu
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
+        ItemRouletteInput();
+        ItemRouletteRender();
     }
 
     public void OnEnterCombatExit()
     {
-        ItemRouletteUpdate();
 
     }
 
@@ -192,8 +194,15 @@ public class PlayerManager : MonoBehaviour
     private void OnPreActionStay()
     {
         //Keep Inventory Open
+        if (WorldMachine.World.currentBeatIndex < 7)
+        {
+            ItemRouletteInput();
+        }
+
+        ItemRouletteRender();
+        
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-        ItemRouletteUpdate();
+
 
         backpackNonCombat.SetActive(false);
         backpackInCombat.SetActive(true);
@@ -201,10 +210,25 @@ public class PlayerManager : MonoBehaviour
     
     public void OnPreActionExit()
     {
+        switch (currentAction)
+        {
+            case Action.Idle:
 
+                break;
 
-        anim.SetTrigger("block");
-        outAnim.SetTrigger("block");
+            case Action.Attacking:
+                anim.SetTrigger("attack");
+                outAnim.SetTrigger("attack");
+
+                break;
+
+            case Action.Blocking:
+                anim.SetTrigger("block");
+                outAnim.SetTrigger("block");
+
+                break;
+        }
+
     }
 
 
@@ -229,7 +253,7 @@ public class PlayerManager : MonoBehaviour
     public void OnActionExit()
     {
         //Determine shit
-
+        InitializeItemRoulette();
     }
     
 
@@ -271,7 +295,7 @@ public class PlayerManager : MonoBehaviour
         inventorySize -= newItem.Size;    
     }
 
-    private void ItemRouletteUpdate()
+    private void ItemRouletteInput()
     {
         if (inventory.Count == 0)
         {
@@ -284,42 +308,56 @@ public class PlayerManager : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (currentAction == Action.Idle)
         {
-            rouletteIdx++;
-            if (rouletteIdx == rouletteList.Count)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                rouletteIdx = 0;
+                rouletteIdx++;
+                if (rouletteIdx == rouletteList.Count)
+                {
+                    rouletteIdx = 0;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                rouletteIdx--;
+                if (rouletteIdx == -1)
+                {
+                    rouletteIdx = rouletteList.Count - 1;
+                }
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                //pick item, do damage
+                if (rouletteList[rouletteIdx].IsShield == true)
+                {
+                    currentAction = Action.Blocking;
+                }
+
+                if (rouletteList[rouletteIdx].IsShield == false)
+                {
+                    currentAction = Action.Attacking;
+                }
+
+                currentItem = rouletteList[rouletteIdx];
+
+                RemoveItemFromBag(rouletteList[rouletteIdx]);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            rouletteIdx--;
-            if (rouletteIdx == -1)
-            {
-                rouletteIdx = rouletteList.Count - 1;
-            }
-        }
+    }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-
-
-
-            RemoveItemFromBag(rouletteList[rouletteIdx]);
-        }
-
-
+    private void ItemRouletteRender()
+    {
         //Render shit
-
-        //this some gross shit
-        foreach(ItemManager item in roulleteObjects)
+        foreach (ItemManager item in roulleteObjects)
         {
             if (item.ItemData.ID == rouletteList[rouletteIdx].ID)
             {
                 item.transform.localScale = Vector3.Lerp(item.transform.localScale, Vector3.one, Time.deltaTime * backpackToggleSpeed);
 
-                roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles,Vector3.up * (90 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
+                roulleteParent.transform.localEulerAngles = Vector3.Lerp(roulleteParent.transform.localEulerAngles, Vector3.up * (90 + (item.ItemData.ID * 60)), Time.deltaTime * backpackToggleSpeed);
                 //not a high prio fix for the loop back bug
             }
             else
@@ -328,12 +366,12 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-
-
     }
 
     private void InitializeItemRoulette()
     {
+        currentAction = Action.Idle;
+        currentItem = null;
         //get items accesable
         rouletteList.Clear();
         foreach (ItemSO item in WorldMachine.World.AllItems)
