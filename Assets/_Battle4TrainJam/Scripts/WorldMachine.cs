@@ -324,6 +324,22 @@ public class WorldMachine : MonoBehaviour
 
             AllEnemies.Remove(enemyInCombat);
 
+            //Spawn Kill Items
+            foreach (ItemManager IM in PlayerManager.Player.ItemSpawnData)
+            {
+                if (IM != null)
+                { 
+                    Destroy(IM.gameObject);
+                }
+            }
+            PlayerManager.Player.ItemSpawnData.Clear();
+
+
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnDeathDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnDeathDrops.Count))].Prefab,PlayerManager.Player.ItemSpawnPos[0].transform).GetComponent<ItemManager>());
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnDeathDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnDeathDrops.Count))].Prefab,PlayerManager.Player.ItemSpawnPos[1].transform).GetComponent<ItemManager>());
+
+
+
             currentState = State.PostKill;
             enemyInCombat = null;
         }
@@ -332,6 +348,21 @@ public class WorldMachine : MonoBehaviour
         {
             currentState = State.PreAction;
             PlayerManager.Player.OnActionExit();
+
+            //drop items
+            foreach (ItemManager IM in PlayerManager.Player.ItemSpawnData)
+            {
+                if (IM != null)
+                { 
+                    Destroy(IM.gameObject);
+                }
+            }
+            PlayerManager.Player.ItemSpawnData.Clear();
+
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnTurnDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnTurnDrops.Count))].Prefab, PlayerManager.Player.ItemSpawnPos[0].transform).GetComponent<ItemManager>());
+            PlayerManager.Player.ItemSpawnData.Add(Instantiate(enemyInCombat.EnemyStats.OnTurnDrops[(Random.Range(0, enemyInCombat.EnemyStats.OnTurnDrops.Count))].Prefab, PlayerManager.Player.ItemSpawnPos[1].transform).GetComponent<ItemManager>());
+
+
         }
 
 
@@ -352,7 +383,7 @@ public class WorldMachine : MonoBehaviour
             }
             else
             {
-                PlayerManager.Player.health -= (int)( (enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat) * 0.5f);
+                PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat;
 
                 //Particle burst for hit
             }

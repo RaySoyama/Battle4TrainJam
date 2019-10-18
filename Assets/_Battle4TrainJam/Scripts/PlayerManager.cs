@@ -49,9 +49,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject backpackNonCombat;
 
+    [Space(10)]
     [SerializeField]
     private float backpackToggleSpeed = 0.4f;
 
+
+    public List<GameObject> ItemSpawnPos;
+
+    public List<ItemManager> ItemSpawnData;
 
 
     [Space(10)]
@@ -79,7 +84,7 @@ public class PlayerManager : MonoBehaviour
             Player = this;
         }
 
-        DevPopulateBag();
+        //DevPopulateBag();
 
         InitializeItemRoulette();
     }
@@ -218,7 +223,8 @@ public class PlayerManager : MonoBehaviour
         ItemRouletteInput();
 
         ItemRouletteRender();
-        
+
+        PickUpSpawnItemInput();
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
         
     }
@@ -278,17 +284,25 @@ public class PlayerManager : MonoBehaviour
         //currently an idle
     }
     private void OnPostKillStay()
-    { 
-        
+    {
+        PickUpSpawnItemInput();
+
+        ItemRouletteInput();
+        ItemRouletteRender();
 
     }
     public void OnPostKillExit()
-    { 
-    
+    {
+        foreach (ItemManager IM in ItemSpawnData)
+        {
+            if (IM != null)
+            { 
+                Destroy(IM.gameObject);
+            }
+        }
+        ItemSpawnData.Clear();
     }
-
-
-        
+    
 
     private void CheckRangeOfEnemies()
     {
@@ -308,6 +322,36 @@ public class PlayerManager : MonoBehaviour
     }
 
 
+    private void PickUpSpawnItemInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (ItemSpawnData[0] != null)
+            {
+                if (AddItemToBag(ItemSpawnData[0].ItemData) == true)
+                {
+                    Destroy(ItemSpawnData[0].gameObject);
+                    ItemSpawnData[0] = null;
+                    InitializeItemRoulette();
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (ItemSpawnData[1] != null)
+            {
+                if (AddItemToBag(ItemSpawnData[1].ItemData) == true)
+                {
+                    Destroy(ItemSpawnData[1].gameObject);
+                    ItemSpawnData[1] = null;
+                    InitializeItemRoulette();
+                }
+            }
+        }
+
+
+    }
 
 
 
@@ -503,7 +547,7 @@ public class PlayerManager : MonoBehaviour
         //Enemy should be alive
         //Do Effect
         //oh my god, the reason why we divide by 2, is cuz the outline will also call the fucking do damage function tooooooooo
-        WorldMachine.World.enemyInCombat.currentHP -= (int)(currentItem.Stat * 0.5f);
+        WorldMachine.World.enemyInCombat.currentHP -= currentItem.Stat;
     }
 
 }

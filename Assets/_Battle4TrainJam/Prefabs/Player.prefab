@@ -28239,6 +28239,10 @@ MonoBehaviour:
   - {fileID: 8004010940575911356}
   backpackNonCombat: {fileID: 7367885854611226207}
   backpackToggleSpeed: 10
+  ItemSpawnPos:
+  - {fileID: 4725839054370767593}
+  - {fileID: 8747965027181572186}
+  ItemSpawnData: []
   roulleteParent: {fileID: 6344841110382173199}
   rouletteIdx: -1
   rouletteList: []
