@@ -3471,26 +3471,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3f993682f70e1b42a6d12fa6e26220b, type: 3}
---- !u!1 &396038874 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3815735618156338478, guid: a3f993682f70e1b42a6d12fa6e26220b,
+--- !u!114 &396038875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 396038875, guid: a3f993682f70e1b42a6d12fa6e26220b,
     type: 3}
   m_PrefabInstance: {fileID: 396038873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &396038875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396038874}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec24966a5cd21b648a48c6c23f46ad7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: b92ff45a134eab6468d20da10935f69a, type: 2}
-  currentHP: 0
 --- !u!1 &437146587
 GameObject:
   m_ObjectHideFlags: 0
