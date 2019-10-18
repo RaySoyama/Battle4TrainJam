@@ -137,12 +137,7 @@ public class WorldMachine : MonoBehaviour
         }
 
 
-        //ADD THIS
-
-        //Enter Area One
-        AudioLibrary["IntroLoop"].volume = 0.5f;
-        AudioLibrary["DungeonLoop"].volume = 0.5f;
-
+        //ADD THI
 
 
 
@@ -431,7 +426,7 @@ public class WorldMachine : MonoBehaviour
 
     private IEnumerator AudioStarter()
     {
-        
+
         AudioLibrary["IntroLoop"].Play();
         AudioLibrary["IntroLoop"].volume = 0.5f;
 
@@ -439,6 +434,7 @@ public class WorldMachine : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
+
         AudioLibrary["IntroLoop"].volume = 0.0f;
 
 
@@ -451,12 +447,9 @@ public class WorldMachine : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        while (AudioLibrary["DungeonLoop"].volume > 0)
+        while (AudioLibrary["DungeonLoop"].volume > 0.05f)
         {
-            //AudioLibrary["DungeonLoop"].volume = Mathf.Lerp(AudioLibrary["DungeonLoop"].volume, 0, 0.1f);
-
-            AudioLibrary["DungeonLoop"].volume -= 0.1f;
-
+            AudioLibrary["DungeonLoop"].volume = Mathf.Lerp(AudioLibrary["DungeonLoop"].volume, 0, 1 * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
