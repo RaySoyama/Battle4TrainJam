@@ -1,32 +1,20 @@
 fileFormatVersion: 2
-guid: 90a49f6b9fc846e4c83ffcbc8b0b948c
+guid: 9208e5f7a89c7a746a3c566e1d1aed1c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Metal
-    2100002: Gold
-    2100004: lambert1
+    2100000: Bricks_Trim
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube53
+    4300000: pCube77
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gold
-    second: {fileID: 2100000, guid: 489dd7002a6867f4cb24307dfabe24e9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: 0c2e93f41512b73419b3a817d7320d48, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: baf737aeeb412ef4585abd5200e231c6, type: 2}
+      name: Bricks_Trim
+    second: {fileID: 2100000, guid: d8289ee7e9d893d48add61e4376f959c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
