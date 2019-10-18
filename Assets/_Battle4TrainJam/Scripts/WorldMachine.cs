@@ -306,11 +306,6 @@ public class WorldMachine : MonoBehaviour
 
             audioSetUp = true;
 
-            foreach (AudioSource kyak in AudioSourceList)
-            {
-                //kyak.Play();
-                kyak.volume = 0;
-            }
         }
 
 
@@ -428,6 +423,11 @@ public class WorldMachine : MonoBehaviour
     }
 
 
+    public void StartGame()
+    {
+        currentState = State.Walking;
+    }
+
 
     private IEnumerator AudioStarter()
     {
@@ -439,20 +439,24 @@ public class WorldMachine : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
-
         AudioLibrary["IntroLoop"].volume = 0.0f;
+
 
         AudioLibrary["DungeonLoop"].Play();
         AudioLibrary["DungeonLoop"].volume = 0.5f;
 
         while (PlayerManager.Player.gameObject.transform.position.x < 32)
         {
+            Debug.Log("YEEt");
             yield return new WaitForEndOfFrame();
         }
 
-        while (AudioLibrary["DungeonLoop"].volume != 0)
+        while (AudioLibrary["DungeonLoop"].volume > 0)
         {
-            AudioLibrary["DungeonLoop"].volume = AudioLibrary["DungeonLoop"].volume - 5 * Time.deltaTime;
+            //AudioLibrary["DungeonLoop"].volume = Mathf.Lerp(AudioLibrary["DungeonLoop"].volume, 0, 0.1f);
+
+            AudioLibrary["DungeonLoop"].volume -= 0.1f;
+
             yield return new WaitForEndOfFrame();
         }
 
