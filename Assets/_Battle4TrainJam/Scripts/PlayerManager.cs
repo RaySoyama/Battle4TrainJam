@@ -72,7 +72,7 @@ public class PlayerManager : MonoBehaviour
             Player = this;
         }
 
-        //DevPopulateBag();
+        DevPopulateBag();
 
         InitializeItemRoulette();
     }
@@ -101,8 +101,8 @@ public class PlayerManager : MonoBehaviour
                 OnActionStay();
 
                 break;
-            case WorldMachine.State.Win:
-
+            case WorldMachine.State.PostKill:
+                OnPostKillStay();
                 break;
             case WorldMachine.State.Death:
 
@@ -120,6 +120,14 @@ public class PlayerManager : MonoBehaviour
             backpackInCombat.transform.localScale = Vector3.Lerp(backpackInCombat.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
             //backpackNonCombat.transform.localScale = Vector3.Lerp(backpackNonCombat.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
         }
+
+        //Dev Test
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            DoAttackDamageCamdenThisIsYou();
+        }
+
+
     }
 
 
@@ -160,17 +168,18 @@ public class PlayerManager : MonoBehaviour
 
     public void OnEnterCombatEnter()
     {
-
-
-
+        backpackNonCombat.SetActive(false);
+        backpackInCombat.SetActive(true);
     }
 
     private void OnEnterCombatStay()
     {
-        //Open Menu
+        //Open Menu JK
+        /*
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
         ItemRouletteInput();
         ItemRouletteRender();
+         */
     }
 
     public void OnEnterCombatExit()
@@ -187,23 +196,24 @@ public class PlayerManager : MonoBehaviour
         anim.SetTrigger("pickItem");
         outAnim.SetTrigger("pickItem");
 
+        backpackNonCombat.SetActive(false);
+        backpackInCombat.SetActive(true);
     }
 
     private void OnPreActionStay()
     {
-        //Keep Inventory Open
-        if (WorldMachine.World.currentBeatIndex < 7)
-        {
-            ItemRouletteInput();
-        }
+        
+        //Keep Inventory Open 
+        //if (WorldMachine.World.currentBeatIndex < 7)
+        //{
+        //}
+        
+        ItemRouletteInput();
 
         ItemRouletteRender();
         
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.one, backpackToggleSpeed * Time.deltaTime);
-
-
-        backpackNonCombat.SetActive(false);
-        backpackInCombat.SetActive(true);
+        
     }
     
     public void OnPreActionExit()
@@ -247,13 +257,28 @@ public class PlayerManager : MonoBehaviour
         //logic
     }
 
-
     public void OnActionExit()
     {
         //Determine shit
         InitializeItemRoulette();
     }
+
+
+
+    public void OnPostKillEnter()
+    { 
+        //celebrate Anim if we make one
+        //currently an idle
+    }
+    private void OnPostKillStay()
+    { 
+        
+
+    }
+    public void OnPostKillExit()
+    { 
     
+    }
 
 
         
@@ -274,6 +299,8 @@ public class PlayerManager : MonoBehaviour
         }
     
     }
+
+
 
     public bool AddItemToBag(ItemSO newItem)
     {
@@ -329,7 +356,10 @@ public class PlayerManager : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            //Cant 'use' an item outside of combat
+            if (WorldMachine.World.currentState == WorldMachine.State.Action)
+            { 
+                if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 //pick item, do damage
                 if (rouletteList[rouletteIdx].IsShield == true)
@@ -356,6 +386,7 @@ public class PlayerManager : MonoBehaviour
                 currentItem = rouletteList[rouletteIdx];
 
                 RemoveItemFromBag(rouletteList[rouletteIdx]);
+            }
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -398,6 +429,8 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+
+
     private void InitializeItemRoulette()
     {
         currentAction = Action.Idle;
@@ -432,4 +465,14 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+
+
+    public void DoAttackDamageCamdenThisIsYou()
+    {
+        //Enemy should be alive
+        //Do Effect
+        WorldMachine.World.enemyInCombat.currentHP -= currentItem.Stat;
+    }
+
 }

@@ -12,7 +12,7 @@ public class WorldMachine : MonoBehaviour
         EnterCombat,
         PreAction,
         Action,
-        Win,
+        PostKill,
         Death
     }
 
@@ -212,10 +212,7 @@ public class WorldMachine : MonoBehaviour
                 //wait 4 seconds
                 if (TimerCourtine == null)
                 {
-
-
-                    FunctionToDo += PlayerManager.Player.OnActionExit;
-                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, true));
 
                     //On Enter
                     
@@ -232,7 +229,7 @@ public class WorldMachine : MonoBehaviour
 
 
                 break;
-            case State.Win:
+            case State.PostKill:
                 break;
             case State.Death:
                 break;
@@ -279,6 +276,35 @@ public class WorldMachine : MonoBehaviour
     private IEnumerator TimerCour(float time)
     {
         yield return new WaitForSeconds(time);
+        TimerCourtine = null;
+
+    }
+    
+    private IEnumerator TimerCour(float time, bool ActionCheck)
+    {
+        yield return new WaitForSeconds(time);
+
+        if (enemyInCombat.currentHP <= 0)
+        {
+            //Enemy killed
+            //play enemy animation
+
+            PlayerManager.Player.OnActionExit();
+            PlayerManager.Player.OnPostKillEnter();
+
+
+            currentState = State.PostKill;
+            enemyInCombat = null;
+        }
+        //else if player dead
+        else
+        {
+            currentState = State.PreAction;
+            PlayerManager.Player.OnActionExit();
+        }
+
+
+
         TimerCourtine = null;
 
     }
