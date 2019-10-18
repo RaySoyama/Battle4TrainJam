@@ -106,7 +106,7 @@ public class PlayerManager : MonoBehaviour
 
         AddItemToBag(WorldMachine.World.AllItems[0]);
         AddItemToBag(WorldMachine.World.AllItems[1]);
-        DevPopulateBag();
+        //DevPopulateBag();
 
         InitializeItemRoulette();
     }
