@@ -6768,11 +6768,6 @@ PrefabInstance:
       propertyPath: GameOverScreen
       value: 
       objectReference: {fileID: 169201094}
-    - target: {fileID: 7027231153148490819, guid: fe8ea3e3501abf2449098710baa1e494,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e28ac5650508a2049a701a0c467043a3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8ea3e3501abf2449098710baa1e494, type: 3}
 --- !u!1 &993169830 stripped
@@ -7192,7 +7187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217433879}
-  m_LocalRotation: {x: 0.27568245, y: 0.00000014502741, z: -0.00000004732195, w: 0.96124876}
+  m_LocalRotation: {x: 0.27568245, y: 0.00000008773252, z: -0.000000030889993, w: 0.96124876}
   m_LocalPosition: {x: -16.490002, y: 5, z: -8.556001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

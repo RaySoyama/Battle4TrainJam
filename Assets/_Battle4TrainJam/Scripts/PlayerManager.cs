@@ -87,6 +87,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> VFX;
 
+    public ParticleSystem PlayerBurst;
 
     void Start()
     {

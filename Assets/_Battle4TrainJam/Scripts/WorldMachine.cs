@@ -80,7 +80,6 @@ public class WorldMachine : MonoBehaviour
     public Color Rare3;
 
 
-
     private Coroutine TimerCourtine = null;
 
     private delegate void MyDelegate();
@@ -407,22 +406,22 @@ public class WorldMachine : MonoBehaviour
                 PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat;
 
                 //Particle burst for hit
+                //ParticleSystem.EmissionModule.SetBursts(PlayerManager.Player.PlayerBurst.Burst[] { new ParticleSystem.Burst(0.0f, 100, 200), new ParticleSystem.Burst(1.0f, 10, 20) });
+
+                PlayerManager.Player.PlayerBurst.Emit(3);
+                AudioLibrary["TakeDamage"].Play();
             }
         }
         else 
         {
             PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack;
+            PlayerManager.Player.PlayerBurst.Emit(3);
+            //PlayerManager.Player.PlayerBurst.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0.0f, 100, 200), new ParticleSystem.Burst(1.0f, 10, 20) });
+                AudioLibrary["TakeDamage"].Play();
         }
 
 
     }
-
-
-    public void StartGame()
-    {
-        currentState = State.Walking;
-    }
-
 
     private IEnumerator AudioStarter()
     {
