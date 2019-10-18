@@ -3489,7 +3489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec24966a5cd21b648a48c6c23f46ad7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: f2e956ce64a634b4ebadfd6ff01deaa4, type: 2}
+  enemyStats: {fileID: 11400000, guid: b92ff45a134eab6468d20da10935f69a, type: 2}
   currentHP: 0
 --- !u!1 &437146587
 GameObject:

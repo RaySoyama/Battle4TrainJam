@@ -165,6 +165,8 @@ public class WorldMachine : MonoBehaviour
 
                     TimerCourtine = StartCoroutine(TimerCour(4.0f, State.PreAction));
 
+                    enemyInCombat.OnEnterCombatEnter();
+
                     //Audio
                     AudioLibrary["Uke1"].volume = 1;
 
@@ -193,6 +195,8 @@ public class WorldMachine : MonoBehaviour
 
                     //On Enter and Exit      
                     PlayerManager.Player.OnPreActionEnter();
+                    enemyInCombat.OnPreActionEnter();
+
 
                     //Audio
 
@@ -230,6 +234,32 @@ public class WorldMachine : MonoBehaviour
 
                 break;
             case State.PostKill:
+
+                if (currentBeatIndex != 1)
+                {
+                    return;
+                }
+
+                //wait 4 seconds
+                if (TimerCourtine == null)
+                {
+                    FunctionToDo += PlayerManager.Player.OnPostKillExit;
+
+                    TimerCourtine = StartCoroutine(TimerCour(4.0f, State.Walking));
+
+                    //On Enter
+                    PlayerManager.Player.OnPostKillEnter();
+
+
+                    //Audio Victory
+                    //SynthAudioSource.Play();
+                    //UkuleleAudioSource.Play();
+                    //BassAudioSource.Play();
+
+
+                    //Player or Boss will decide, BUT FOR NOW, go to Pre
+                }
+
                 break;
             case State.Death:
                 break;
@@ -292,6 +322,7 @@ public class WorldMachine : MonoBehaviour
             PlayerManager.Player.OnActionExit();
             PlayerManager.Player.OnPostKillEnter();
 
+            AllEnemies.Remove(enemyInCombat);
 
             currentState = State.PostKill;
             enemyInCombat = null;
@@ -310,5 +341,21 @@ public class WorldMachine : MonoBehaviour
     }
 
 
+    //Reaason its on world machine is cuz if not all enemies will attack, regardless of agro
+    public void EnemyAttacksPlayerEvent()
+    {
+        if (PlayerManager.Player.currentAction == PlayerManager.Action.Blocking)
+        {
+            if (enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat > 0)
+            {
+                //do nothing
+            }
+            else
+            {
+                PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat;
+            }
+        }
 
+
+    }
 }

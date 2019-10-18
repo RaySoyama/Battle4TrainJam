@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
 
 
     [Header("Stats")]
+    public int health;
+
     [SerializeField]
     private float speed = 3;
     [SerializeField]
@@ -356,8 +358,8 @@ public class PlayerManager : MonoBehaviour
             }
 
 
-            //Cant 'use' an item outside of combat
-            if (WorldMachine.World.currentState == WorldMachine.State.Action)
+            //Cant 'use' an item outside of preaction
+            if (WorldMachine.World.currentState == WorldMachine.State.PreAction)
             { 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
             {
