@@ -339,6 +339,7 @@ public class WorldMachine : MonoBehaviour
         {
             //Enemy killed
             //play enemy animation
+            enemyInCombat.anim.SetTrigger("dead");
 
             PlayerManager.Player.OnActionExit();
             PlayerManager.Player.OnPostKillEnter();

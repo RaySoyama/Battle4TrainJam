@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
-    private Animator anim;
+    public Animator anim;
     [SerializeField]
     private Animator outlineAnim;
 
