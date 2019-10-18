@@ -16,6 +16,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Bricks_Trim
     second: {fileID: 2100000, guid: d8289ee7e9d893d48add61e4376f959c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 38317eb08dd2fd745a59d5337720036a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
