@@ -99,6 +99,15 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            //Game End
+            WorldMachine.World.currentState = WorldMachine.State.Death;
+
+            return;
+        }
+
+
 
         InventorySizeUI.text = $"{inventory.Count}/25";
 
@@ -364,9 +373,7 @@ public class PlayerManager : MonoBehaviour
                     InitializeItemRoulette();
                 }
             }
-        }
-
-
+        }       
     }
 
 
