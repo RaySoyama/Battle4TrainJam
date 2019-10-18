@@ -27,9 +27,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private float combatRange = 9;
 
+    [ReadOnlyField]
     public Action currentAction = Action.Idle;
 
+    [ReadOnlyField]
     public ItemSO currentItem;
+
+    [SerializeField]
+    private UnityEngine.UI.Text InventorySizeUI;
 
     [Header("Inventory Stuff")]
 
@@ -94,6 +99,9 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+
+        InventorySizeUI.text = $"{inventory.Count}/25";
+
         switch (WorldMachine.World.currentState)
         {
             case WorldMachine.State.None:
@@ -327,6 +335,11 @@ public class PlayerManager : MonoBehaviour
 
     private void PickUpSpawnItemInput()
     {
+        if (currentAction != Action.Idle)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (ItemSpawnData[0] != null)
