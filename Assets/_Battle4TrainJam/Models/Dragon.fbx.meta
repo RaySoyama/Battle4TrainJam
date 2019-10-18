@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: b963bd79a02957143a575a10e65f9c96
+guid: 6da6e03fcef4346438a3a02c2f547eed
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Dragon_Mesh
     400000: //RootNode
+    400002: Dragon_Mesh
     2100000: lambert1
-    2100002: lambert2
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: InventoryWheel
+    2300000: Dragon_Mesh
+    3300000: Dragon_Mesh
+    4300000: Dragon_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
