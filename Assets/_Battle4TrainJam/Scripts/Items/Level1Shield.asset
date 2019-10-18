@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 0
   model: {fileID: 100000, guid: 0f342c90232e44a4ea3887a1aa769ae7, type: 3}
   isShield: 1
-  stat: 1
+  stat: 5
   size: 1
   rarity: 1
