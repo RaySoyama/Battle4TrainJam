@@ -75,7 +75,6 @@ public class PlayerManager : MonoBehaviour
         DevPopulateBag();
 
         InitializeItemRoulette();
-
     }
 
     void Update()
@@ -142,8 +141,6 @@ public class PlayerManager : MonoBehaviour
     {
         //Remove Item Menu
         roulleteParent.transform.localScale = Vector3.Lerp(roulleteParent.transform.localScale, Vector3.zero, backpackToggleSpeed * Time.deltaTime);
-        rouletteIdx = -1;
-
 
         CheckRangeOfEnemies();
 
@@ -154,6 +151,7 @@ public class PlayerManager : MonoBehaviour
     {
         anim.SetBool("isWalking", false);
         outAnim.SetBool("isWalking", false);
+        InitializeItemRoulette();
     }
 
 
@@ -214,6 +212,7 @@ public class PlayerManager : MonoBehaviour
         {
             case Action.Idle:
 
+
                 break;
 
             case Action.Attacking:
@@ -228,7 +227,6 @@ public class PlayerManager : MonoBehaviour
 
                 break;
         }
-
     }
 
 
@@ -340,6 +338,10 @@ public class PlayerManager : MonoBehaviour
                 {
                     currentAction = Action.Attacking;
                 }
+
+                
+                //Move s hit up
+                //roulleteObjects[]
 
                 currentItem = rouletteList[rouletteIdx];
 
