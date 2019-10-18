@@ -6919,18 +6919,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e00a038a482903e478dc1ca36cb4ffb7, type: 3}
---- !u!114 &1119956967 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7027231151227188366, guid: fe8ea3e3501abf2449098710baa1e494,
-    type: 3}
-  m_PrefabInstance: {fileID: 955521650}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6b030f91ebf274da58fcd90f61755b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1133848142
 GameObject:
   m_ObjectHideFlags: 0
@@ -7135,7 +7123,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187241970}
-  m_LocalRotation: {x: 7.2802547e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
+  m_LocalRotation: {x: -4.9932787e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
   m_LocalPosition: {x: -11.490002, y: 3, z: -25.556004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7204,7 +7192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217433879}
-  m_LocalRotation: {x: 0.27568248, y: 0.00000011637997, z: -0.000000039105977, w: 0.96124876}
+  m_LocalRotation: {x: 0.27568245, y: 0.00000014502741, z: -0.00000004732195, w: 0.96124876}
   m_LocalPosition: {x: -16.490002, y: 5, z: -8.556001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7357,7 +7345,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228499076}
-  m_LocalRotation: {x: 7.2802547e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
+  m_LocalRotation: {x: -4.9932787e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
   m_LocalPosition: {x: -11.490002, y: 3, z: -25.556004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8296,17 +8284,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1119956967}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1867405897}
         m_MethodName: SetActive
         m_Mode: 6
@@ -8316,6 +8293,28 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7367885853023075129}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: startGame
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7367885853023075130}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: startGame
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -10343,3 +10342,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab63c2ee3b0e3bd40ad42db2fe5a3c03, type: 3}
+--- !u!95 &7367885853023075129 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2310840734245963862, guid: ab63c2ee3b0e3bd40ad42db2fe5a3c03,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367885853023075128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7367885853023075130 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6566061096210012764, guid: ab63c2ee3b0e3bd40ad42db2fe5a3c03,
+    type: 3}
+  m_PrefabInstance: {fileID: 7367885853023075128}
+  m_PrefabAsset: {fileID: 0}
