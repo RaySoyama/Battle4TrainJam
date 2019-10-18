@@ -14,4 +14,11 @@ public class FunctionSmuggler : MonoBehaviour
     {
         WorldMachine.World.EnemyAttacksPlayerEvent();
     }
+
+    public void BackpackOn()
+    {
+        WorldMachine.World.currentState = WorldMachine.State.Walking;
+        PlayerManager.Player.OnWalkingEnter();
+    }
+
 }
