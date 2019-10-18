@@ -1757,9 +1757,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4788127325597909969}
   outlineAnim: {fileID: 4788127326148216112}
-  enemyStats: {fileID: 11400000, guid: f2e956ce64a634b4ebadfd6ff01deaa4, type: 2}
+  enemyStats: {fileID: 11400000, guid: b5b725b58ca58e14498e0eefc35e2665, type: 2}
   currentHP: 0
   attackPatternIndex: 0
+  particle: {fileID: 7697265798037278544}
 --- !u!1 &4788127326157584022
 GameObject:
   m_ObjectHideFlags: 0

@@ -677,6 +677,8 @@ public class PlayerManager : MonoBehaviour
         //Do Effect
         //oh my god, the reason why we divide by 2, is cuz the outline will also call the fucking do damage function tooooooooo
         WorldMachine.World.enemyInCombat.currentHP -= currentItem.Stat;
+        WorldMachine.World.enemyInCombat.particle.Emit(3);
+
     }
 
 }
