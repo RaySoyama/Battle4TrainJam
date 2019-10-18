@@ -3,14 +3,280 @@ guid: 6da6e03fcef4346438a3a02c2f547eed
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Dragon_Mesh
-    400000: //RootNode
-    400002: Dragon_Mesh
+    100000: Back_Finger
+    100002: Back_Finger 1
+    100004: Back_Finger_2
+    100006: Back_Finger_2 1
+    100008: Back_Finger_3_END
+    100010: Back_Finger_3_END 1
+    100012: Back_Toe
+    100014: Back_Toe 1
+    100016: Back_Toe_2
+    100018: Back_Toe_2 1
+    100020: Back_Toe_END
+    100022: Back_Toe_END 1
+    100024: Chest
+    100026: //RootNode
+    100028: Dragon_Mesh
+    100030: Finer_2
+    100032: Finer_2_2
+    100034: Finer_2_3
+    100036: Finer_2_4_END
+    100038: Finger_1
+    100040: Finger_1 1
+    100042: Finger_1 2
+    100044: Finger_1 3
+    100046: Finger_1_2
+    100048: Finger_1_2 1
+    100050: Finger_1_2 2
+    100052: Finger_1_2 3
+    100054: Finger_1_3
+    100056: Finger_1_3 1
+    100058: Finger_1_3_END
+    100060: Finger_1_3_END 1
+    100062: Finger_1_4_END
+    100064: Finger_1_4_END 1
+    100066: Finger_2
+    100068: Finger_2 1
+    100070: Finger_2 2
+    100072: Finger_2_2
+    100074: Finger_2_2 1
+    100076: Finger_2_2 2
+    100078: Finger_2_3
+    100080: Finger_2_3_END
+    100082: Finger_2_3_END 1
+    100084: Finger_2_4_END
+    100086: Finger_3
+    100088: Finger_3 1
+    100090: Finger_3_2
+    100092: Finger_3_2 1
+    100094: Finger_3_3_END
+    100096: Finger_3_3_END 1
+    100098: Head
+    100100: Head 1
+    100102: Head 2
+    100104: Head_END
+    100106: Head_END 1
+    100108: Head_END 2
+    100110: Hips
+    100112: Jaw
+    100114: Jaw 1
+    100116: Jaw 2
+    100118: Jaw_End
+    100120: Jaw_End 1
+    100122: Jaw_End 2
+    100124: Joints
+    100126: L_Ankle
+    100128: L_Ankle 1
+    100130: L_Arm
+    100132: L_Hip
+    100134: L_Knee
+    100136: L_Knee 1
+    100138: L_Leg
+    100140: L_Wing_1
+    100142: L_Wing_2
+    100144: L_Wing_3
+    100146: L_Wing_4
+    100148: L_Wing_5
+    100150: L_Wing_6_END
+    100152: Neck_1
+    100154: Neck_1_2
+    100156: Neck_1_3
+    100158: Neck_1_4
+    100160: Neck_1_5
+    100162: Neck_2
+    100164: Neck_2_2
+    100166: Neck_2_3
+    100168: Neck_2_4
+    100170: Neck_2_5
+    100172: Neck_3
+    100174: Neck_3_2
+    100176: Neck_3_3
+    100178: Neck_3_4
+    100180: Neck_3_5
+    100182: Neck_Root
+    100184: R_Ankle
+    100186: R_Ankle 1
+    100188: R_Arm
+    100190: R_Hip
+    100192: R_Knee
+    100194: R_Knee 1
+    100196: R_Leg
+    100198: R_Wing_1
+    100200: R_Wing_2
+    100202: R_Wing_3
+    100204: R_Wing_4
+    100206: R_Wing_5
+    100208: R_Wing_6_END
+    100210: Root
+    100212: Spine_1
+    100214: Spine_2
+    100216: Spine_3
+    100218: Spine_4
+    100220: Tail_1
+    100222: Tail_2
+    100224: Tail_3
+    100226: Tail_4
+    100228: Tail_5
+    100230: Tail_6
+    100232: Tail_7_END
+    100234: Toe_1
+    100236: Toe_1 1
+    100238: Toe_1_2
+    100240: Toe_1_2 1
+    100242: Toe_1_END
+    100244: Toe_1_END 1
+    100246: Toe_2
+    100248: Toe_2 1
+    100250: Toe_2_2
+    100252: Toe_2_2 1
+    100254: Toe_2_END
+    100256: Toe_2_END 1
+    100258: Toe_3
+    100260: Toe_3 1
+    100262: Toe_3_2
+    100264: Toe_3_2 1
+    100266: Toe_3_END
+    100268: Toe_END
+    400000: Back_Finger
+    400002: Back_Finger 1
+    400004: Back_Finger_2
+    400006: Back_Finger_2 1
+    400008: Back_Finger_3_END
+    400010: Back_Finger_3_END 1
+    400012: Back_Toe
+    400014: Back_Toe 1
+    400016: Back_Toe_2
+    400018: Back_Toe_2 1
+    400020: Back_Toe_END
+    400022: Back_Toe_END 1
+    400024: Chest
+    400026: //RootNode
+    400028: Dragon_Mesh
+    400030: Finer_2
+    400032: Finer_2_2
+    400034: Finer_2_3
+    400036: Finer_2_4_END
+    400038: Finger_1
+    400040: Finger_1 1
+    400042: Finger_1 2
+    400044: Finger_1 3
+    400046: Finger_1_2
+    400048: Finger_1_2 1
+    400050: Finger_1_2 2
+    400052: Finger_1_2 3
+    400054: Finger_1_3
+    400056: Finger_1_3 1
+    400058: Finger_1_3_END
+    400060: Finger_1_3_END 1
+    400062: Finger_1_4_END
+    400064: Finger_1_4_END 1
+    400066: Finger_2
+    400068: Finger_2 1
+    400070: Finger_2 2
+    400072: Finger_2_2
+    400074: Finger_2_2 1
+    400076: Finger_2_2 2
+    400078: Finger_2_3
+    400080: Finger_2_3_END
+    400082: Finger_2_3_END 1
+    400084: Finger_2_4_END
+    400086: Finger_3
+    400088: Finger_3 1
+    400090: Finger_3_2
+    400092: Finger_3_2 1
+    400094: Finger_3_3_END
+    400096: Finger_3_3_END 1
+    400098: Head
+    400100: Head 1
+    400102: Head 2
+    400104: Head_END
+    400106: Head_END 1
+    400108: Head_END 2
+    400110: Hips
+    400112: Jaw
+    400114: Jaw 1
+    400116: Jaw 2
+    400118: Jaw_End
+    400120: Jaw_End 1
+    400122: Jaw_End 2
+    400124: Joints
+    400126: L_Ankle
+    400128: L_Ankle 1
+    400130: L_Arm
+    400132: L_Hip
+    400134: L_Knee
+    400136: L_Knee 1
+    400138: L_Leg
+    400140: L_Wing_1
+    400142: L_Wing_2
+    400144: L_Wing_3
+    400146: L_Wing_4
+    400148: L_Wing_5
+    400150: L_Wing_6_END
+    400152: Neck_1
+    400154: Neck_1_2
+    400156: Neck_1_3
+    400158: Neck_1_4
+    400160: Neck_1_5
+    400162: Neck_2
+    400164: Neck_2_2
+    400166: Neck_2_3
+    400168: Neck_2_4
+    400170: Neck_2_5
+    400172: Neck_3
+    400174: Neck_3_2
+    400176: Neck_3_3
+    400178: Neck_3_4
+    400180: Neck_3_5
+    400182: Neck_Root
+    400184: R_Ankle
+    400186: R_Ankle 1
+    400188: R_Arm
+    400190: R_Hip
+    400192: R_Knee
+    400194: R_Knee 1
+    400196: R_Leg
+    400198: R_Wing_1
+    400200: R_Wing_2
+    400202: R_Wing_3
+    400204: R_Wing_4
+    400206: R_Wing_5
+    400208: R_Wing_6_END
+    400210: Root
+    400212: Spine_1
+    400214: Spine_2
+    400216: Spine_3
+    400218: Spine_4
+    400220: Tail_1
+    400222: Tail_2
+    400224: Tail_3
+    400226: Tail_4
+    400228: Tail_5
+    400230: Tail_6
+    400232: Tail_7_END
+    400234: Toe_1
+    400236: Toe_1 1
+    400238: Toe_1_2
+    400240: Toe_1_2 1
+    400242: Toe_1_END
+    400244: Toe_1_END 1
+    400246: Toe_2
+    400248: Toe_2 1
+    400250: Toe_2_2
+    400252: Toe_2_2 1
+    400254: Toe_2_END
+    400256: Toe_2_END 1
+    400258: Toe_3
+    400260: Toe_3 1
+    400262: Toe_3_2
+    400264: Toe_3_2 1
+    400266: Toe_3_END
+    400268: Toe_END
     2100000: lambert1
-    2300000: Dragon_Mesh
-    3300000: Dragon_Mesh
     4300000: Dragon_Mesh
+    9500000: //RootNode
+    13700000: Dragon_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -63,8 +329,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -91,7 +357,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
