@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     public Animator anim;
     [SerializeField]
-    private Animator outlineAnim;
+    public Animator outlineAnim;
 
 
 

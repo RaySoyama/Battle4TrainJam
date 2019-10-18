@@ -340,6 +340,7 @@ public class WorldMachine : MonoBehaviour
             //Enemy killed
             //play enemy animation
             enemyInCombat.anim.SetTrigger("dead");
+            enemyInCombat.outlineAnim.SetTrigger("dead");
 
             PlayerManager.Player.OnActionExit();
             PlayerManager.Player.OnPostKillEnter();
@@ -399,7 +400,7 @@ public class WorldMachine : MonoBehaviour
     {
         if (PlayerManager.Player.currentAction == PlayerManager.Action.Blocking)
         {
-            if (enemyInCombat.EnemyStats.Rarity == PlayerManager.Player.currentItem.Rarity)
+            if (enemyInCombat.EnemyStats.Rarity <= PlayerManager.Player.currentItem.Rarity)
             {
                 //do nothing
             }
