@@ -23,9 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         currentHP = enemyStats.Health;
     }
-    
-    void Update()
-    {
-        
-    }
+
+
+
 }

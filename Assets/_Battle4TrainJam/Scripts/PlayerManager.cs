@@ -255,6 +255,9 @@ public class PlayerManager : MonoBehaviour
     }
     
 
+
+        
+
     private void CheckRangeOfEnemies()
     {
         foreach (EnemyController EC in WorldMachine.World.AllEnemies)
@@ -354,6 +357,16 @@ public class PlayerManager : MonoBehaviour
 
                 RemoveItemFromBag(rouletteList[rouletteIdx]);
             }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                //throw shit out
+                RemoveItemFromBag(rouletteList[rouletteIdx]);
+                InitializeItemRoulette();
+            }
+
+
+
         }
     }
 
@@ -362,6 +375,13 @@ public class PlayerManager : MonoBehaviour
         //Render shit
         foreach (ItemManager item in roulleteObjects)
         {
+            if (rouletteList.Count == 0)
+            {
+                InitializeItemRoulette();
+                return;
+            }
+
+
             if (item.ItemData.ID == rouletteList[rouletteIdx].ID)
             {
                 item.transform.localScale = Vector3.Lerp(item.transform.localScale, Vector3.one, Time.deltaTime * backpackToggleSpeed);
@@ -397,8 +417,6 @@ public class PlayerManager : MonoBehaviour
         {
             IM.gameObject.transform.localPosition = new Vector3(IM.gameObject.transform.localPosition.x,0, IM.gameObject.transform.localPosition.z);
         }
-
-
 
         rouletteIdx = 0;
     }
