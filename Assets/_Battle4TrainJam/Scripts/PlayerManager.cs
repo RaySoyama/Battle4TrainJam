@@ -72,7 +72,7 @@ public class PlayerManager : MonoBehaviour
             Player = this;
         }
 
-        DevPopulateBag();
+        //DevPopulateBag();
 
         InitializeItemRoulette();
     }
@@ -377,8 +377,9 @@ public class PlayerManager : MonoBehaviour
         {
             if (rouletteList.Count == 0)
             {
-                InitializeItemRoulette();
-                return;
+                item.transform.localScale = Vector3.zero;
+
+                continue;
             }
 
 
