@@ -469,6 +469,12 @@ public class WorldMachine : MonoBehaviour
 
         AudioLibrary["BossLoop"].Play();
         AudioLibrary["BossLoop"].volume = 0.5f;
-        
+
+        while (PlayerManager.Player.gameObject.transform.position.x < 43)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        AudioLibrary["BossLoop"].Stop();
+
     }
 }
