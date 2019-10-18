@@ -474,7 +474,8 @@ public class PlayerManager : MonoBehaviour
     {
         //Enemy should be alive
         //Do Effect
-        WorldMachine.World.enemyInCombat.currentHP -= currentItem.Stat;
+        //oh my god, the reason why we divide by 2, is cuz the outline will also call the fucking do damage function tooooooooo
+        WorldMachine.World.enemyInCombat.currentHP -= (int)(currentItem.Stat * 0.5f);
     }
 
 }
