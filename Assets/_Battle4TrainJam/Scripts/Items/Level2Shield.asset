@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 2
   prefab: {fileID: 8107043482211155158, guid: 496c9ac41f3424e4baf8573e46588556, type: 3}
   isShield: 1
-  stat: 10
+  stat: 6
   size: 5
   rarity: 2

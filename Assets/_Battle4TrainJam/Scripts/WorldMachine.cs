@@ -398,7 +398,7 @@ public class WorldMachine : MonoBehaviour
     {
         if (PlayerManager.Player.currentAction == PlayerManager.Action.Blocking)
         {
-            if (enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat > 0)
+            if (enemyInCombat.EnemyStats.Rarity == PlayerManager.Player.currentItem.Rarity)
             {
                 //do nothing
             }
@@ -406,12 +406,15 @@ public class WorldMachine : MonoBehaviour
             {
                 PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack - PlayerManager.Player.currentItem.Stat;
 
-                //Particle burst for hit
+                AudioLibrary["TakeDamage"].Play();
+                PlayerManager.Player.particle.Emit(3);
             }
         }
-        else 
+        else
         {
             PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack;
+            AudioLibrary["TakeDamage"].Play();
+            PlayerManager.Player.particle.Emit(3);
         }
 
 

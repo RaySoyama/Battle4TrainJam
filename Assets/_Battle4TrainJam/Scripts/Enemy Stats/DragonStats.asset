@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DragonStats
   m_EditorClassIdentifier: 
   health: 100
-  attack: 15
+  attack: 7
   rarity: 3
   attackPattern: 00000000000000000100000001000000
   onDeathDrops:

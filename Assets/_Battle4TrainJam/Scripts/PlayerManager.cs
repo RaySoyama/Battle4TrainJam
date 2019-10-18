@@ -36,6 +36,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Text InventorySizeUI;
 
+    [SerializeField]
+    private UnityEngine.UI.Text HealthPoolUI;
+
+
+
     [Header("Inventory Stuff")]
 
     [SerializeField]
@@ -87,6 +92,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> VFX;
 
+    public ParticleSystem particle;
+
 
     void Start()
     {
@@ -115,7 +122,7 @@ public class PlayerManager : MonoBehaviour
         }
 
 
-
+        HealthPoolUI.text = $"{health}/100";
         InventorySizeUI.text = $"{inventory.Count}/25";
 
         switch (WorldMachine.World.currentState)
