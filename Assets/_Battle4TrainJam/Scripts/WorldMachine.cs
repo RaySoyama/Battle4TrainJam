@@ -87,8 +87,9 @@ public class WorldMachine : MonoBehaviour
     private MyDelegate FunctionToDo;
 
 
-
     private bool audioSetUp = false;
+
+    private bool isInDragonArea = false;
 
     private float beatDuration;
     void Start()
@@ -115,6 +116,9 @@ public class WorldMachine : MonoBehaviour
             AudioLibrary.Add(AudioNameList[i], AudioSourceList[i]);
         }
 
+
+        AudioStarter();
+
     }
 
     void Update()
@@ -135,10 +139,12 @@ public class WorldMachine : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            currentState = State.Walking;
-        }
+        //ADD THIS
+
+        //Enter Area One
+        AudioLibrary["IntroLoop"].volume = 0.5f;
+        AudioLibrary["DungeonLoop"].volume = 0.5f;
+
 
 
 
@@ -161,7 +167,6 @@ public class WorldMachine : MonoBehaviour
                     PlayerManager.Player.OnWalkingEnter();
 
                     //Audio
-                    AudioLibrary["DrumLoop"].volume = 1;
                     //AudioLibrary["Bass3"].volume = 1;
                     //AudioLibrary["Synth3"].volume = 1;
                     //AudioLibrary["Uke3"].volume = 1;
@@ -302,9 +307,10 @@ public class WorldMachine : MonoBehaviour
             beatAnim.SetBool("count" , true);
 
             audioSetUp = true;
+
             foreach (AudioSource kyak in AudioSourceList)
             {
-                kyak.Play();
+                //kyak.Play();
                 kyak.volume = 0;
             }
         }
@@ -420,6 +426,30 @@ public class WorldMachine : MonoBehaviour
             PlayerManager.Player.health -= enemyInCombat.EnemyStats.Attack;
         }
 
+
+    }
+
+
+
+    private IEnumerator AudioStarter()
+    {
+
+        AudioLibrary["IntroLoop"].volume = 0.5f;
+
+        while (AudioLibrary["IntroLoop"].isPlaying == true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        AudioLibrary["IntroLoop"].volume = 0.0f;
+        AudioLibrary["DungeonLoop"].volume = 0.5f;
+
+        while (PlayerManager.Player.gameObject.transform.position.x < 32)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        
 
     }
 }

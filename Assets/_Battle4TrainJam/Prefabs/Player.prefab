@@ -28397,7 +28397,7 @@ MonoBehaviour:
   anim: {fileID: 6566061096210012764}
   outAnim: {fileID: 2310840734245963862}
   health: 10
-  speed: 1
+  speed: 2
   combatRange: 9
   currentAction: 0
   currentItem: {fileID: 0}
@@ -28429,6 +28429,7 @@ MonoBehaviour:
   - {fileID: 621014185775898850}
   - {fileID: 4887136638506514881}
   - {fileID: 1108265645604236963}
+  VFX: []
 --- !u!1 &7367885854611226207
 GameObject:
   m_ObjectHideFlags: 0
