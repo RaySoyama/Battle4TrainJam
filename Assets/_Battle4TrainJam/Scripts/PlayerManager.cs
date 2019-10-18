@@ -81,6 +81,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private List<ItemManager> roulleteObjects;
 
+    [Space(10)]
+    [Header("Color")]
+
+    [SerializeField]
+    private List<ParticleSystem> VFX;
+
+
     void Start()
     {
 
@@ -270,6 +277,23 @@ public class PlayerManager : MonoBehaviour
 
                 break;
         }
+
+        foreach (ParticleSystem PS in VFX)
+        {
+            if (currentItem.Rarity == 1)
+            {
+                PS.startColor = new Color(WorldMachine.World.Rare1.r, WorldMachine.World.Rare1.g, WorldMachine.World.Rare1.b, PS.startColor.a);
+            }
+            else if (currentItem.Rarity == 2)
+            {
+                PS.startColor = new Color(WorldMachine.World.Rare2.r, WorldMachine.World.Rare2.g, WorldMachine.World.Rare2.b, PS.startColor.a);
+            }
+            else if (currentItem.Rarity == 3)
+            {
+                PS.startColor = new Color(WorldMachine.World.Rare3.r, WorldMachine.World.Rare3.g, WorldMachine.World.Rare3.b, PS.startColor.a);
+            }
+        }
+
     }
 
 
