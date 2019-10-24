@@ -534,10 +534,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 100000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
-      propertyPath: m_Name
-      value: Barrel (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.63
@@ -581,6 +577,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
+      propertyPath: m_Name
+      value: Barrel (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
@@ -8971,6 +8971,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136632100}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.1}
@@ -8981,6 +8982,18 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -174.30005, y: 100.6001}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867405898}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1743, y: 4216}
+>>>>>>> 856533be3e1d5c193d438cb8e92a72d2543a7ee9
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1136632102
@@ -8997,7 +9010,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< HEAD
   m_RaycastTarget: 0
+=======
+  m_RaycastTarget: 1
+>>>>>>> 856533be3e1d5c193d438cb8e92a72d2543a7ee9
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9150,7 +9167,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187241970}
-  m_LocalRotation: {x: -4.9932787e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
+  m_LocalRotation: {x: 7.2802547e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
   m_LocalPosition: {x: -11.490002, y: 3, z: -25.556004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9543,7 +9560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228499076}
-  m_LocalRotation: {x: -4.9932787e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
+  m_LocalRotation: {x: 7.2802547e-23, y: 0.00000003814697, z: 3.1597249e-16, w: 1}
   m_LocalPosition: {x: -11.490002, y: 3, z: -25.556004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10743,8 +10760,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2137633637}
+<<<<<<< HEAD
   m_Father: {fileID: 897446751}
   m_RootOrder: 1
+=======
+  - {fileID: 1136632101}
+  m_Father: {fileID: 590218745}
+  m_RootOrder: 4
+>>>>>>> 856533be3e1d5c193d438cb8e92a72d2543a7ee9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11415,10 +11438,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 100000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
-      propertyPath: m_Name
-      value: Barrel (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.06
@@ -11462,6 +11481,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
+      propertyPath: m_Name
+      value: Barrel (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ee5d36ef43dca045be8456b93c683d9, type: 3}
